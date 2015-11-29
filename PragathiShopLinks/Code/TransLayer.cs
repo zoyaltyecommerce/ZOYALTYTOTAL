@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using Zoyal.Code;
+using ZOYALTY.Code;
 
-namespace Zoyal.Code
+namespace ZOYALTY.Code
 {
     public enum operation
     {

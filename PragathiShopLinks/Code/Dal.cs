@@ -5,7 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Web;
 
-namespace Zoyal.Code
+namespace ZOYALTY.Code
 {
     public class Dal
     {

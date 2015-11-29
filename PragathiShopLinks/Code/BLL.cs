@@ -11,8 +11,8 @@ using System.Text.RegularExpressions;
 using System.Diagnostics;
 using System.Configuration;
 using System.Data.SqlClient;
-using Zoyal.Code;
-namespace Zoyal.Code
+using ZOYALTY.Code;
+namespace ZOYALTY.Code
 {
     public class BLL
     {
@@ -227,6 +227,39 @@ namespace Zoyal.Code
         {
             DataTable dt = BLL.ExecuteQuery("EXEC USP_COUPON @OPERATION ='COUPON_PRICE',@COUPON_NAME='" + obj.COUPON_NAME + "'");
             return dt;
+        }
+
+        internal static DataTable GETVENDORS()
+        {
+            DataTable dt_vendors = BLL.ExecuteQuery("EXEC USP_VENDORS @OPERATION ='GETVENDORS'");
+            return dt_vendors;
+        }
+
+        internal static DataTable GETVENDORBYID(int id)
+        {
+            DataTable dt_vendors = BLL.ExecuteQuery("EXEC USP_VENDORS @OPERATION ='SELECTVENDORBYID',@USER_ID="+ id +"");
+            return dt_vendors;
+        }
+
+        internal static bool UPDATEVENDOR(USERS obj_user)
+        {
+            bool status = false;
+            status = BLL.ExecuteNonQuery("EXEC USP_VENDORS @OPERATION ='UPDATINGVENDOR',@USER_ID=" + obj_user.USER_ID + ",@USER_FIRSTNAME='"+ obj_user.USER_FIRSTNAME + "',@USER_EMAILID='"+ obj_user.USER_EMAILID + "',@USER_PASSWORD='"+ obj_user.USER_PASSWORD + "',@USER_PHONE='"+ obj_user.USER_PHONE +"'");
+            return status;
+        }
+
+        internal static bool SAVEVENDOR(USERS obj_user)
+        {
+            bool status = false;
+            status = BLL.ExecuteNonQuery("EXEC USP_VENDORS @OPERATION ='SAVEVENDOR' ,@USER_FIRSTNAME='" + obj_user.USER_FIRSTNAME + "',@USER_EMAILID='" + obj_user.USER_EMAILID + "',@USER_PASSWORD='" + obj_user.USER_PASSWORD + "',@USER_PHONE='" + obj_user.USER_PHONE + "'");
+            return status;
+        }
+
+        internal static bool DELETEVENDOR(int id)
+        {
+            bool status = false;
+            status = BLL.ExecuteNonQuery("EXEC USP_VENDORS @OPERATION ='DELETEVENDOR',@USER_ID=" + id + "");
+            return status;
         }
 
 

@@ -47,26 +47,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AjaxControlToolkit">
-      <HintPath>C:\Users\radhika.j\Desktop\AjaxControlToolkit.dll</HintPath>
-    </Reference>
-    <Reference Include="Anders.Web.Controls">
-      <HintPath>C:\Users\jaya.b\Desktop\Anders.Web.Controls.dll</HintPath>
-    </Reference>
-    <Reference Include="aspsnippets.facebookapi">
-      <HintPath>C:\Users\jaya.b\Desktop\aspsnippets.facebookapi.dll</HintPath>
-    </Reference>
-    <Reference Include="ASPSnippets.TwitterAPI">
-      <HintPath>C:\Users\jaya.b\Desktop\ASPSnippets.TwitterAPI.dll</HintPath>
-    </Reference>
-    <Reference Include="CCA.Util, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1b7c8dff04d8e786, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Users\jaya.b\Desktop\CCA.Util.dll</HintPath>
-    </Reference>
-    <Reference Include="ccavutil, Version=0.0.0.0, Culture=neutral, PublicKeyToken=8234b99f8b577042, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Users\jaya.b\Desktop\ccavutil.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -85,10 +65,10 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="Telerik.Web.UI">
-      <HintPath>..\..\DLL\Telerik.Web.UI.dll</HintPath>
+      <HintPath>C:\Users\KUT\Desktop\CHALOAdmin\CHALOAdmin\CHALOAdmin\bin\Telerik.Web.UI.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.Web.UI.Skins">
-      <HintPath>..\..\DLL\Telerik.Web.UI.Skins.dll</HintPath>
+      <HintPath>C:\Users\KUT\Desktop\CHALOAdmin\CHALOAdmin\CHALOAdmin\bin\Telerik.Web.UI.Skins.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -674,7 +654,7 @@
     <Content Include="Admin\js\plugins\video\responsible-video.js" />
     <Content Include="Admin\login.aspx" />
     <Content Include="Admin\login.html" />
-    <Content Include="Admin\_admin.Master" />
+    <Content Include="Admin\Vendors.aspx" />
     <Content Include="App_Data\RadUploadTemp\1420190336138banner11.png" />
     <Content Include="App_Data\RadUploadTemp\1420190781105banner7new.png" />
     <Content Include="App_Data\RadUploadTemp\1420190783907Banner7-psl.png" />
@@ -762,11 +742,11 @@
     <Content Include="Admin\LESS\top_navigation.less" />
     <Content Include="Admin\LESS\typography.less" />
     <Content Include="Admin\LESS\variables.less" />
-    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="vendor\flexslider\fonts\flexslider-icon.eot" />
     <Content Include="vendor\flexslider\fonts\flexslider-icon.ttf" />
     <Content Include="vendor\flexslider\fonts\flexslider-icon.woff" />
     <Content Include="vendor\flexslider\fonts\flexslider-icond41d.eot" />
+    <Content Include="Admin\_admin.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -775,10 +755,6 @@
       <DependentUpon>Web.config</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <Content Include="bin\PragathiShopLinks.dll" />
-    <Content Include="bin\PragathiShopLinks.pdb" />
-    <Content Include="bin\Telerik.Web.UI.dll" />
-    <Content Include="bin\Telerik.Web.UI.Skins.dll" />
     <Content Include="bootstrap\css\bootstrap.min.css" />
     <Content Include="bootstrap\datetimepicker\css\bootstrap-datetimepicker.css" />
     <Content Include="bootstrap\datetimepicker\js\bootstrap-datetimepicker.min.js" />
@@ -1200,6 +1176,13 @@
     <Compile Include="Admin\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Vendors.aspx.cs">
+      <DependentUpon>Vendors.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Vendors.aspx.designer.cs">
+      <DependentUpon>Vendors.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\_admin.Master.cs">
       <DependentUpon>_admin.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1295,9 +1278,6 @@
     <Compile Include="logincheck.aspx.designer.cs">
       <DependentUpon>logincheck.aspx</DependentUpon>
     </Compile>
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="partnerwithus.aspx.cs">
       <DependentUpon>partnerwithus.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1328,9 +1308,7 @@
       <DependentUpon>_Layout.Master</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="obj\Debug\TempPE\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

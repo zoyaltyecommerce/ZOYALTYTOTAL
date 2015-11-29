@@ -6,7 +6,7 @@ using System.Net.Mail;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Zoyal.Code;
+using ZOYALTY.Code;
 
 namespace Zoyal
 {

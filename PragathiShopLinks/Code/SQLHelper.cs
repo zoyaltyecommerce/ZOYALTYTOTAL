@@ -3,7 +3,7 @@ using System.Data;
 using System.Xml;
 using System.Data.SqlClient;
 using System.Collections;
-using Zoyal.Code;
+using ZOYALTY.Code;
 
 
 public sealed class SqlHelper
