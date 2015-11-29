@@ -1,0 +1,21 @@
+﻿.awhite
+{
+color:white !important;
+}
+.nav-top > li > select {
+    border-radius: 0;
+    color: white;
+    padding: 18px 15px;
+    position: relative;
+    display: block;
+}
+.bs-docs-example
+{
+    display:inline-block !important;
+    width:150px;
+    padding-top:10px
+}
+.glyphicon 
+{
+    color:#1abc9c !important;
+}
