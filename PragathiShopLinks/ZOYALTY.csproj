@@ -249,6 +249,10 @@
     <Compile Include="Careers.aspx.designer.cs">
       <DependentUpon>Careers.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Code\BLL.cs" />
+    <Compile Include="Code\Dal.cs" />
+    <Compile Include="Code\SQLHelper.cs" />
+    <Compile Include="Code\TransLayer.cs" />
     <Compile Include="ContactUs.aspx.cs">
       <DependentUpon>ContactUs.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -325,7 +329,6 @@
     <Folder Include="Admin\js\" />
     <Folder Include="Admin\LESS\" />
     <Folder Include="bootstrap\" />
-    <Folder Include="Code\" />
     <Folder Include="Content\" />
     <Folder Include="css\" />
     <Folder Include="Images\" />
