@@ -337,6 +337,7 @@ namespace ZOYALTY.Code
         public string ADD_STATE { set; get; }
 
         public string ADD_CITY { set; get; }
+        public string ADD_LOCATION { set; get; }
 
     }
     public class cities: SMVTS_MAIN
@@ -357,6 +358,46 @@ public DateTime city_modifieddate { set; get; }
         public int COUPON_DISCOUNT { get; set; }
         public decimal COUPON_PRICE { get; set; }
         public int COUPON_STATUS { get; set; }
+    }
+
+    public class SHOPPINGTRANSACTION:SMVTS_MAIN
+    {
+    public int    TRANS_ID { get; set; }
+ public string TRANS_NAME { set; get; }
+
+public decimal TRANS_TOTALAMOUNT { set; get; }
+
+public string TRANS_COMMENTS { set; get; }
+public int TRANS_STATUS { set; get; }
+public int TRANS_PAYMENTTYPE { set; get; }
+
+public string TRANS_NUMBER { set; get; }
+
+public int TRANS_CREATEDBY { set; get; }
+public DateTime TRANS_CREATEDDATE { set; get; }
+public int TRANS_MODIFIEDBY { set; get; }
+public DateTime TRANS_MODIFIEDDATE { set; get; }
+    }
+    public class MAINCART:SMVTS_MAIN
+    {
+          public int MAINCART_ID { set; get; }
+         public int MAINCART_USERID { set; get; }
+        public int MAINCART_ADDRESS { set; get; }
+        public int MAINCART_COUPONID { set; get; }
+        public int MAINCART_NOOFAUDIENCE { set; get; }
+        public DateTime MAINCART_STARTDATE { set; get; }
+        public DateTime MAINCART_ENDDATE { set; get; }
+        public DateTime MAINCART_NOOFDAYS { set; get; }
+        public Decimal MAINCART_SUBTOTAL { set; get; }
+        public Decimal MAINCART_SHIPPINGCOST { set; get; }
+        public Decimal MAINCART_DISCOUNTEDPRICE { set; get; }
+        public Decimal MAINCART_TOTALPRICE { set; get; }
+        public int MAINCART_CREATEDBY { set; get; }
+        public DateTime MAINCART_CREATEDDATE { set; get; }
+        public int MAINCART_MODIFIEDBY { set; get; }
+        public DateTime MAINCART_MODIFIEDDATE { set; get; }
+        public int MAINCART_STATUS { set; get; }
+        public int MAINCART_TRANSID { set; get; }
     }
 
 }

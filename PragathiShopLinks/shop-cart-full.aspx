@@ -60,12 +60,7 @@
         }
     </script>
 
-    <script type="text/javascript">
-        widow.onload = function () {
-            document.getElementById("Myres").style.borderColor = "#fff";
-        }
-
-    </script>
+   
     <script type="text/javascript">
         
         function dropcity() {
@@ -97,6 +92,9 @@
     <asp:HiddenField runat="server" ID="hid_location" />
       <asp:HiddenField runat="server" ID="hid_location_name" />
          <asp:HiddenField runat="server" ID="hid_coupon" />
+     <asp:HiddenField runat="server" ID="hid_total_amount" />
+     <asp:HiddenField runat="server" ID="hid_couponid" />
+      <asp:HiddenField runat="server" ID="hid_coupon_disc" />
     <div role="main" class="main">
 
         <!-- Begin page top -->

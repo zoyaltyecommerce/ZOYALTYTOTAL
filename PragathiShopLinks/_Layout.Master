@@ -530,9 +530,9 @@
             document.getElementById('div_reg').style.display = "block";
             document.getElementById('li_login').style.display = "inline-block";
             document.getElementById('li_account').style.display = " visible";
-            document.getElementById('btn_signup').style.display = " inline-block";
+            document.getElementById('ctl00_btn_signup').style.display = " inline-block";
             document.getElementById('li_password').style.display = "none";
-            document.getElementById('btn_login').style.display = "none";
+            document.getElementById('ctl00_btn_login').style.display = "none";
             document.getElementById('li_account').style.display = "none";
 
         }
@@ -542,8 +542,8 @@
             document.getElementById('div_login').style.display = "block";
             document.getElementById("div_reg").style.display = "none";
             document.getElementById("li_login").style.display = "none";
-            document.getElementById('btn_signup').style.display = "none";
-            document.getElementById('btn_login').style.display = "inline-block";
+            document.getElementById('ctl00_btn_signup').style.display = "none";
+            document.getElementById('ctl00_btn_login').style.display = "inline-block";
             document.getElementById('li_password').style.display = "inline-block";
             document.getElementById('li_account').style.display = "inline-block";
         }
@@ -558,19 +558,19 @@
             document.getElementById('h4forgetpwd').style.display = "block";
             document.getElementById('loginlbl').style.display = 'none';
             document.getElementById('lblemail').style.display = 'none';
-            document.getElementById('txt_username').style.display = "none";
+            document.getElementById('ctl00_txt_username').style.display = "none";
             document.getElementById('lbl2').style.display = 'block';
             document.getElementById('lbpwd').style.display = 'none';
-            document.getElementById("txt_password").style.display = "none";
+            document.getElementById("ctl00_txt_password").style.display = "none";
             document.getElementById("li_account").style.display = "none";
             document.getElementById("li_password").style.display = "none";
             document.getElementById('lbpwd').style.display = 'none';
-            document.getElementById("btn_login").style.display = "none";
-            document.getElementById('txt_forgetemail').style.display = "block";
+            document.getElementById("ctl00_btn_login").style.display = "none";
+            document.getElementById('ctl00_txt_forgetemail').style.display = "block";
             document.getElementById('li_frgback').style.display = "block";
-            document.getElementById("btn_forget").style.display = "block";
-            document.getElementById('RequiredFieldValidator6').style.display = 'none';
-            document.getElementById('RequiredFieldValidator5').style.display = 'none';
+            document.getElementById("ctl00_btn_forget").style.display = "block";
+            document.getElementById('ctl00_RequiredFieldValidator6').style.display = 'none';
+            document.getElementById('ctl00_RequiredFieldValidator5').style.display = 'none';
 
 
         }
@@ -579,24 +579,24 @@
         function forgetlogin() {
             document.getElementById('h4login').style.display = "block";
             document.getElementById('li_frgback').style.display = "none";
-            document.getElementById("btn_forget").style.display = "none";
-            document.getElementById('txt_forgetemail').style.display = "none";
+            document.getElementById("ctl00_btn_forget").style.display = "none";
+            document.getElementById('ctl00_txt_forgetemail').style.display = "none";
             document.getElementById('lbl2').style.display = 'none';
             document.getElementById('h4forgetpwd').style.display = "none";
             document.getElementById('loginlbl').style.display = 'block';
             document.getElementById('lblemail').style.display = 'block';
-            document.getElementById('txt_username').style.display = 'block';
+            document.getElementById('ctl00_txt_username').style.display = 'block';
             document.getElementById('lbpwd').style.display = 'block';
-            document.getElementById('txt_password').style.display = 'block';
+            document.getElementById('ctl00_txt_password').style.display = 'block';
 
             document.getElementById('div_login').style.display = "block";
             document.getElementById("div_reg").style.display = "none";
             document.getElementById("li_login").style.display = "none";
-            document.getElementById('btn_signup').style.display = "none";
-            document.getElementById('btn_login').style.display = "inline-block";
+            document.getElementById('ctl00_btn_signup').style.display = "none";
+            document.getElementById('ctl00_btn_login').style.display = "inline-block";
             document.getElementById('li_password').style.display = "inline-block";
             document.getElementById('li_account').style.display = "inline-block";
-            document.getElementById('RequiredFieldValidator5').style.display = 'none';
+            document.getElementById('ctl00_RequiredFieldValidator5').style.display = 'none';
         }
 
     </script>
@@ -615,10 +615,10 @@
         }
         function OnSuccessDelete(result) {
             var res = result.split(',');
-            document.getElementById('ContentPlaceHolder1_lbl_count_item').innerHTML = "Your selection(" + res[1] + "   items)";
+            document.getElementById('ctl00_ContentPlaceHolder1_lbl_count_item').innerHTML = "Your selection(" + res[1] + "   items)";
             document.getElementById('cart_count').innerHTML = res[1];
-            document.getElementById("ContentPlaceHolder1_cart_total_footer").innerHTML = res[0];
-            document.getElementById("ContentPlaceHolder1_total_footer").innerHTML = res[0];
+            document.getElementById("ctl00_ContentPlaceHolder1_cart_total_footer").innerHTML = res[0];
+            document.getElementById("ctl00_ContentPlaceHolder1_total_footer").innerHTML = res[0];
             document.getElementById("sub_amount_cart").innerHTML = res[0];
             
             //document.getElementById('cart_head').innerHTML = "Your selection items(" + res[1] + ")";
@@ -631,9 +631,9 @@
                 var n = "Noitem selected";
                 res.innerHTML = n;
                 var zero = "00.00";
-                document.getElementById("ContentPlaceHolder1_cart_total_footer").innerHTML = zero;
-                document.getElementById("ContentPlaceHolder1_total_footer").innerHTML = zero;
-                document.getElementById("sub_amount_cart").innerHTML = zero;
+                document.getElementById("ctl00_ContentPlaceHolder1_cart_total_footer").innerHTML = zero;
+                document.getElementById("ctl00_ContentPlaceHolder1_total_footer").innerHTML = zero;
+                document.getElementById("ctl00_sub_amount_cart").innerHTML = zero;
                 location.href = "../index.aspx";
 
             }
@@ -658,9 +658,9 @@
             //document.getElementById('sub_amount_cart').innerHTML = result + price;
             PageMethods.cartprice(result, id, QNANTITY, OnSuccessprice, Onfailureprice)
             function OnSuccessprice(GRAND_TOTAL) {
-                document.getElementById("sub_amount_cart").innerHTML = GRAND_TOTAL;
-                document.getElementById("ContentPlaceHolder1_cart_total_footer").innerHTML = GRAND_TOTAL;
-                document.getElementById("ContentPlaceHolder1_total_footer").innerHTML = GRAND_TOTAL;
+                document.getElementById("ctl00_sub_amount_cart").innerHTML = GRAND_TOTAL;
+                document.getElementById("ctl00_ContentPlaceHolder1_cart_total_footer").innerHTML = GRAND_TOTAL;
+                document.getElementById("ctl00_ContentPlaceHolder1_total_footer").innerHTML = GRAND_TOTAL;
             }
             function Onfailureprice() {
             }
@@ -681,9 +681,9 @@
                 document.getElementById('cart_price' + id).innerHTML = result;
                 PageMethods.cartprice(result, id, QNANTITY, OnSuccessminus, Onfailureminus)
                 function OnSuccessminus(GRAND_TOTAL) {
-                    document.getElementById("sub_amount_cart").innerHTML = GRAND_TOTAL;
-                    document.getElementById('ContentPlaceHolder1_cart_total_footer').innerHTML = GRAND_TOTAL;
-                    document.getElementById('ContentPlaceHolder1_total_footer').innerHTML = GRAND_TOTAL;
+                    document.getElementById("ctl00_sub_amount_cart").innerHTML = GRAND_TOTAL;
+                    document.getElementById('ctl00_ContentPlaceHolder1_cart_total_footer').innerHTML = GRAND_TOTAL;
+                    document.getElementById('ctl00_ContentPlaceHolder1_total_footer').innerHTML = GRAND_TOTAL;
                 }
                 function Onfailureminus() {
                 }
@@ -714,8 +714,8 @@
             debugger;
             //var fdfd =document.getElementById("coupon_id").value;
 
-            var code = document.getElementById('ContentPlaceHolder1_txt_promocode').value;
-            var price = document.getElementById('ContentPlaceHolder1_total_footer').innerText;
+            var code = document.getElementById('ctl00_ContentPlaceHolder1_txt_promocode').value;
+            var price = document.getElementById('ctl00_ContentPlaceHolder1_total_footer').innerText;
            
 
 
@@ -725,17 +725,19 @@
             function OnSuccess(result) {
                 var res = result.split(',')
                 // var hidd = document.getElementById("hiddn1").value;
-                document.getElementById("sub_amount_cart").innerHTML = res[0];
-                document.getElementById('ContentPlaceHolder1_cart_total_footer').innerHTML = res[0];
-                document.getElementById('ContentPlaceHolder1_total_footer').innerHTML = res[0];
-                document.getElementById('ContentPlaceHolder1_lbl').innerHTML = res[1];
+                document.getElementById("ctl00_sub_amount_cart").innerHTML = res[0];
+                document.getElementById('ctl00_ContentPlaceHolder1_cart_total_footer').innerHTML = res[0];
+                document.getElementById('ctl00_ContentPlaceHolder1_total_footer').innerHTML = res[0];
+                document.getElementById('ctl00_ContentPlaceHolder1_lbl').innerHTML = res[1];
+                document.getElementById('ctl00_ContentPlaceHolder1_hid_couponid').value = res[2];
+                document.getElementById('ctl00_ContentPlaceHolder1_hid_coupon_disc').value = res[3];
                 //document.getElementById("coupon_id").innerHTML = res[2];
 
                 debugger;
                 if (res[1] == "Coupon Applied") {
-                    document.getElementById("ContentPlaceHolder1_apply1").style.display = "none";
-                    document.getElementById("ContentPlaceHolder1_Button1").style.display = "block";
-                    document.getElementById('ContentPlaceHolder1_hid_coupon').value = code;
+                    document.getElementById("ctl00_ContentPlaceHolder1_apply1").style.display = "none";
+                    document.getElementById("ctl00_ContentPlaceHolder1_Button1").style.display = "block";
+                    document.getElementById('ctl00_ContentPlaceHolder1_hid_coupon').value = code;
                        
                 }
 
@@ -748,17 +750,17 @@
     </script>
     <script type="text/javascript">
         function removie_Coupon() {
-            var rmovie = document.getElementById('ContentPlaceHolder1_lbl').innerText;
+            var rmovie = document.getElementById('ctl00_ContentPlaceHolder1_lbl').innerText;
             PageMethods.remvoie_coupon(rmovie, OnSuccess, onerror)
             function OnSuccess(result) {
                 var res = result.split(',')
 
-                document.getElementById("sub_amount_cart").innerHTML = res[0];
-                document.getElementById('ContentPlaceHolder1_cart_total_footer').innerHTML = res[0];
-                document.getElementById('ContentPlaceHolder1_total_footer').innerHTML = res[0];
-                document.getElementById('ContentPlaceHolder1_lbl').innerHTML = res[1];
-                document.getElementById("ContentPlaceHolder1_apply1").style.display = "block";
-                document.getElementById("ContentPlaceHolder1_Button1").style.display = "none";
+                document.getElementById("ctl00_sub_amount_cart").innerHTML = res[0];
+                document.getElementById('ctl00_ContentPlaceHolder1_cart_total_footer').innerHTML = res[0];
+                document.getElementById('ctl00_ContentPlaceHolder1_total_footer').innerHTML = res[0];
+                document.getElementById('ctl00_ContentPlaceHolder1_lbl').innerHTML = res[1];
+                document.getElementById("ctl00_ContentPlaceHolder1_apply1").style.display = "block";
+                document.getElementById("ctl00_ContentPlaceHolder1_Button1").style.display = "none";
             }
             function onerror() {
 

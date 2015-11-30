@@ -160,9 +160,10 @@ namespace Zoyal
             }
             cart_total_footer.InnerHtml = dt_price.Compute("Sum(PRODUCT_SUB_TOTAL)", string.Empty).ToString();
             total_footer.InnerHtml = dt_price.Compute("Sum(PRODUCT_SUB_TOTAL)", string.Empty).ToString();
-
+          
             int count = dt_price.Rows.Count;
             lbl_count_item.InnerHtml = "Your selection(" + count + "   items)";
+            hid_total_amount.Value =dt_price.Compute("Sum(PRODUCT_SUB_TOTAL)", string.Empty).ToString();
             return content;
         }
         public void clearcontrol()
@@ -194,7 +195,7 @@ namespace Zoyal
                 string startdate = Request.Form["startdate"];
                 string enddate = Request.Form["enddate"];
 
-                SHIPPINGADDRESS DA = new SHIPPINGADDRESS();
+                SHIPPINGADDRESS obj_add = new SHIPPINGADDRESS();
 
 
                 DataTable dt_details = new DataTable("DETAILS");
@@ -212,6 +213,9 @@ namespace Zoyal
                 dt_details.Columns.Add("AUDIENCE", typeof(string));
                 dt_details.Columns.Add("STARTDATE", typeof(string));
                 dt_details.Columns.Add("ENDDATE", typeof(string));
+                dt_details.Columns.Add("TOTAL_AMOUNT", typeof(string));
+                dt_details.Columns.Add("COUPON_ID", typeof(string));
+                dt_details.Columns.Add("COUPON_DISCOUNT", typeof(string));
 
                 DataRow column = dt_details.NewRow();
                 dt_details.Rows.Add(column);
@@ -229,6 +233,9 @@ namespace Zoyal
                 column["AUDIENCE"] = txt_audience.Text;
                 column["STARTDATE"] = txt_startdate.Text;
                 column["ENDDATE"] = txt_enddate.Text;
+                column["TOTAL_AMOUNT"] = hid_total_amount.Value;
+                column["COUPON_ID"] = hid_couponid.Value;
+                column["COUPON_DISCOUNT"] = hid_coupon_disc.Value;
                 Session["DETAILS"] = dt_details;
 
 
@@ -238,22 +245,42 @@ namespace Zoyal
                 {
 
 
+                    SHOPPINGTRANSACTION obj = new SHOPPINGTRANSACTION();
+                    obj.TRANS_NAME = "";
+                    obj.TRANS_TOTALAMOUNT = Convert.ToDecimal(dt_details.Rows[0]["TOTAL_AMOUNT"]);
+                    obj.TRANS_COMMENTS = "";
+                    // obj.TRANS_PAYMENTTYPE = "";
+                    obj.TRANS_NUMBER = "";
+                    obj.TRANS_CREATEDBY = 1;
+                    bool status = BLL.SHOPPING(obj);
+                    if (status == true)
+                    {
+                        BLL.ShowMessage(this, "your successfully inserted");
+                        MAINCART_INSERT();
+                        // clearcontrol();
+
+                    }
+                    else
+                    {
+                        BLL.ShowMessage(this, "contact to admin");
+                    }
 
 
-                    //DA.ADD_FIRSTNAME = txt_name.Text;
-                    //DA.ADD_ALTERNATEPHONE = DD_EMAILID = txt_email.Text;
-                    //DA.ADD_PRIMARYPHONE = txt_phonenumber.Text;
-                    //DA.Atxt_altphonenumber.Text;
-                    //DA.ADD_COUNTRY = ddlcontry.SelectedItem.ToString();
-                    //// DA.ADD_STATE = txt_state.Text;
-                    ////  DA.ADD_CITY = txt_city.Text;
-                    //DA.ADD_ADDRESS = txt_addline1.Text;
-                    //DA.ADD_ADDRESS2 = txt_addline2.Text;
-                    //DA.ADD_CREATEDBY = 1;
-                    // string[] sessionData = { txt_name.Text, txt_email.Text, txt_phonenumber.Text, txt_altphonenumber.Text, ddlcontry.Text, select_city.InnerText, select_location.InnerText, txt_altphonenumber.Text, txt_addline2.Text };
-                    // Session["CART"] = sessionData;
 
-                    //        bool status = BLL.INSERTADDRESS(DA);
+
+                    obj_add.ADD_FIRSTNAME = txt_name.Text;
+                    obj_add.ADD_EMAILID = txt_email.Text;
+                    obj_add.ADD_PRIMARYPHONE = txt_phonenumber.Text;
+                    obj_add.ADD_ALTERNATEPHONE = txt_altphonenumber.Text;
+                    obj_add.ADD_CITY = dt_details.Rows[0]["CITY"].ToString();
+                    obj_add.ADD_LOCATION = dt_details.Rows[0]["LOCATION_name"].ToString();
+                    obj_add.ADD_ADDRESS = txt_addline1.Text;
+                    obj_add.ADD_ADDRESS2 = txt_addline2.Text;
+                    obj_add.ADD_CREATEDBY = 1;
+                   
+                 
+
+                       //   bool status = BLL.INSERTADDRESS(obj_add);
                     //    if (status == true)
                     //    {
                     //        BLL.ShowMessage(this, "your successfully inserted");
@@ -277,7 +304,37 @@ namespace Zoyal
 
             }
         }
+        public void MAINCART_INSERT()
+        {
+            MAINCART obj = new MAINCART();
+            USERS obj_user = new USERS();
+            DataTable dt_main = (DataTable)Session["DETAILS"];
+           // obj.MAINCART_USERID = obj_user.USER_ID;
+         obj.MAINCART_USERID = 1;
+            obj.MAINCART_COUPONID = Convert.ToInt32( dt_main.Rows[0]["COUPON_ID"].ToString());
 
+            obj.MAINCART_NOOFAUDIENCE = Convert.ToInt32( dt_main.Rows[0]["AUDIENCE"].ToString());
+            obj.MAINCART_STARTDATE = Convert.ToDateTime(dt_main.Rows[0]["STARTDATE"].ToString());
+            obj.MAINCART_ENDDATE =Convert.ToDateTime( dt_main.Rows[0]["ENDDATE"].ToString());
+            //  obj.MAINCART_NOOFDAYS
+            obj.MAINCART_SUBTOTAL =Convert.ToDecimal( dt_main.Rows[0]["TOTAL_AMOUNT"].ToString());
+           // obj.MAINCART_SHIPPINGCOST=
+            obj.MAINCART_DISCOUNTEDPRICE = Convert.ToDecimal( dt_main.Rows[0]["COUPON_DISCOUNT"].ToString());
+            obj.MAINCART_CREATEDBY = 1;
+            bool status = BLL.SHOPPINGMAIN(obj);
+            {
+                if (status == true)
+                {
+                    BLL.ShowMessage(this, "your successfully inserted");
+                  
+
+                }
+                else
+                {
+                    BLL.ShowMessage(this, "contact to admin");
+                }
+            }
+        }
         protected void btn_conshaping_Click(object sender, EventArgs e)
         {
             try
@@ -360,20 +417,12 @@ namespace Zoyal
         }
 
         [WebMethod]
-        public static string dropcityselect(string loc)
-        {
-            HttpContext.Current.Session["location"] = loc;
-
-
-            return "";
-
-
-        }
-        [WebMethod]
 
         public static string coupon(string code, string price)
 
         {
+            decimal coup_price = 0;
+            string coupon_id = "";
             string garnd_total = price;
             string message = "";
             if (price != "00.00")
@@ -384,24 +433,27 @@ namespace Zoyal
 
                 COUPONS obj1 = new COUPONS();
 
-
+              
 
                 obj1.COUPON_NAME = code;
                 decimal price1 = decimal.Parse(price);
 
                 DataTable dt_coupon = BLL.GETCOUPON(obj1);
+            
+               
                 if (dt_coupon.Rows.Count != 0)
                 {
 
 
                     foreach (DataRow row in dt_coupon.Rows)
                     {
+                         coupon_id = row["COUPON_ID"].ToString();
                         string coupon_price1 = row["COUPON_PRICE"].ToString();
-
+                        
                         if (coupon_price1 != "")
                         {
                             string coupon_price = row["COUPON_PRICE"].ToString();
-                            decimal coup_price = decimal.Parse(coupon_price);
+                            coup_price = decimal.Parse(coupon_price);
                             decimal total1 = price1 - coup_price;
                             garnd_total = total1.ToString();
                             message = "Coupon Applied";
@@ -411,9 +463,9 @@ namespace Zoyal
                             string coupon_discount = row["COUPON_DISCOUNT"].ToString();
                             decimal D = decimal.Parse(coupon_discount);
                             decimal D1 = D / 100;
-                            decimal D2 = D1 * price1;
+                            coup_price  = D1 * price1;
 
-                            decimal totalprice = price1 - D2;
+                            decimal totalprice = price1 - coup_price;
 
                             garnd_total = totalprice.ToString();
                             message = "Coupon Applied";
@@ -434,7 +486,7 @@ namespace Zoyal
             {
                 message = "coupon can't be applied";
             }
-            return garnd_total + ',' + message;
+            return garnd_total + ',' + message + ',' + coupon_id+','+coup_price;
         }
         [WebMethod]
         public static string remvoie_coupon(string rmovie)

@@ -58,6 +58,33 @@ namespace Zoyal {
         protected global::System.Web.UI.WebControls.HiddenField hid_coupon;
         
         /// <summary>
+        /// hid_total_amount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hid_total_amount;
+        
+        /// <summary>
+        /// hid_couponid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hid_couponid;
+        
+        /// <summary>
+        /// hid_coupon_disc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hid_coupon_disc;
+        
+        /// <summary>
         /// lbl_count_item control.
         /// </summary>
         /// <remarks>
