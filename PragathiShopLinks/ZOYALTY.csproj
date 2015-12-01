@@ -65,10 +65,10 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="Telerik.Web.UI">
-      <HintPath>C:\Users\KUT\Desktop\CHALOAdmin\CHALOAdmin\CHALOAdmin\bin\Telerik.Web.UI.dll</HintPath>
+      <HintPath>..\..\..\..\Users\c2n123\Downloads\ZOYALTYNEW\ZOYALTYNEW\branches\new\PragathiShopLinks\bin\Telerik.Web.UI.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.Web.UI.Skins">
-      <HintPath>C:\Users\KUT\Desktop\CHALOAdmin\CHALOAdmin\CHALOAdmin\bin\Telerik.Web.UI.Skins.dll</HintPath>
+      <HintPath>..\..\..\..\Users\c2n123\Downloads\ZOYALTYNEW\ZOYALTYNEW\branches\new\PragathiShopLinks\bin\Telerik.Web.UI.Skins.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -654,6 +654,7 @@
     <Content Include="Admin\js\plugins\video\responsible-video.js" />
     <Content Include="Admin\login.aspx" />
     <Content Include="Admin\login.html" />
+    <Content Include="Admin\users.aspx" />
     <Content Include="Admin\Vendors.aspx" />
     <Content Include="App_Data\RadUploadTemp\1420190336138banner11.png" />
     <Content Include="App_Data\RadUploadTemp\1420190781105banner7new.png" />
@@ -1175,6 +1176,13 @@
     </Compile>
     <Compile Include="Admin\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\users.aspx.cs">
+      <DependentUpon>users.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\users.aspx.designer.cs">
+      <DependentUpon>users.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Vendors.aspx.cs">
       <DependentUpon>Vendors.aspx</DependentUpon>

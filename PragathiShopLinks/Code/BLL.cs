@@ -274,7 +274,11 @@ namespace ZOYALTY.Code
             return status;
         }
 
-
+        internal static DataTable GETUSERS()
+        {
+            DataTable dt_users = BLL.ExecuteQuery("EXEC USP_USERS @OPERATION ='SELECTUSERS'");
+            return dt_users;
+        }
 
     }
 }
