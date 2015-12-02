@@ -68,8 +68,8 @@
             var drop = document.getElementById("select_loc");
             var dropvalue = drop.options[drop.selectedIndex].value;
             var selectedText = drop.options[drop.selectedIndex].text;
-            document.getElementById('ContentPlaceHolder1_hid_location').value = dropvalue;
-            document.getElementById('ContentPlaceHolder1_hid_location_name').value = selectedText;
+            document.getElementById('ctl00_ContentPlaceHolder1_hid_location').value = dropvalue;
+            document.getElementById('ctl00_ContentPlaceHolder1_hid_location_name').value = selectedText;
           
             //         var loc = document.getElementById("ContentPlaceHolder1_select_location").innerHTML;
             //PageMethods.dropcityselect(loc, OnSuccess, onerror)
@@ -95,6 +95,9 @@
      <asp:HiddenField runat="server" ID="hid_total_amount" />
      <asp:HiddenField runat="server" ID="hid_couponid" />
       <asp:HiddenField runat="server" ID="hid_coupon_disc" />
+       <asp:HiddenField runat="server" ID="hid_paymenttype" />
+   
+    
     <div role="main" class="main">
 
         <!-- Begin page top -->
@@ -527,8 +530,19 @@
                                                 <span class="amount" id="total_footer" runat="server">RS431</span>
                                             </td>
                                         </tr>
+                                      
                                     </tbody>
-                                </table>
+                                </table>  
+                                 <tr>
+                                            <td>
+                                           <asp:RadioButtonList ID="btn_radio" runat="server" >
+                                                 <asp:ListItem Value="1" Selected="True" >Online payment</asp:ListItem>
+                                                    <asp:ListItem Value ="2">Cash on delivary</asp:ListItem>
+                                           </asp:RadioButtonList>
+
+                                                 </td>
+                                    
+                                       </tr>
                             </div>
                             <asp:Label ID="lbl_proced_msg" runat="server" ForeColor="Red"></asp:Label>
                             <p>

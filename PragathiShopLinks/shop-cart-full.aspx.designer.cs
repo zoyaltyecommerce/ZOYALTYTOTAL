@@ -85,6 +85,15 @@ namespace Zoyal {
         protected global::System.Web.UI.WebControls.HiddenField hid_coupon_disc;
         
         /// <summary>
+        /// hid_paymenttype control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hid_paymenttype;
+        
+        /// <summary>
         /// lbl_count_item control.
         /// </summary>
         /// <remarks>
@@ -371,6 +380,15 @@ namespace Zoyal {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl total_footer;
+        
+        /// <summary>
+        /// btn_radio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList btn_radio;
         
         /// <summary>
         /// lbl_proced_msg control.

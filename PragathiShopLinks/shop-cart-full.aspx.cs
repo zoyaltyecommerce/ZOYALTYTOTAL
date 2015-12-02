@@ -102,12 +102,13 @@ namespace Zoyal
                         {
 
                             selectlocation = selectlocation + "<option value='"+dt_location.Rows[i]["LOCATION_ID"]+"' >" + dt_location.Rows[i]["location_name"].ToString() + "</option>";
+                       
+                    }
+                   
+                    select_location.InnerHtml = selectlocation + "</select>";
+            
 
-                        }
 
-                        select_location.InnerHtml = selectlocation + "</select>";
-                        
-     
 
 
                 }
@@ -146,7 +147,9 @@ namespace Zoyal
                     
 
                 }
+              
             }
+         
         }
         public string parsehtmlcart(DataTable dt_product)
         {
@@ -158,6 +161,7 @@ namespace Zoyal
                 content = content + "<tr id='delete_product" + dt_product.Rows[i]["PRODUCT_ID"] + "' class='cart_table_item'><td class='product-thumbnail'><img alt='' width='80' src='" + dt_product.Rows[i]["PRODUCT_IMAGEURL"] + "'/></td><td class='product-name'><a href='shop-product-sidebar.html' >" + dt_product.Rows[i]["PRODUCT_IMAGETITLE"] + "</a></td><td class='product-price'><span id='price_" + dt_product.Rows[i]["PRODUCT_PRICE"] + "' class='amount'>" + dt_product.Rows[i]["PRODUCT_PRICE"] + "</span></td><td class='product-quantity'><div class='quantity'><input type = 'button' class='minus' value='-' onclick='qtyminus(" + dt_product.Rows[i]["product_id"] + "," + dt_product.Rows[i]["PRODUCT_PRICE"] + ");'> <input type='text' ID='txtqty_" + dt_product.Rows[i]["PRODUCT_ID"] + "' class='input-text qty text' title='Qty' name='quantity' ReadOnly='true' value='" + dt_product.Rows[i]["PRODUCT_QTY"] + "'  ><input type='button' ID='increement' class='plus' value='+' onclick='qtyincrees(" + dt_product.Rows[i]["PRODUCT_ID"] + "," + dt_product.Rows[i]["PRODUCT_PRICE"] + ");'></div></td><td class='product-subtotal'><span id='sub_amount_" + dt_product.Rows[i]["PRODUCT_ID"] + "' class='amount'>" + dt_product.Rows[i]["PRODUCT_SUB_TOTAL"] + "</span></td><td class='product-remove'><a title = 'Remove this item'  class='remove' onclick='delete_cartitem(" + dt_product.Rows[i]["PRODUCT_ID"] + ");' href='#'><i class='fa fa-times-circle'></i></a></td></tr>";
 
             }
+
             cart_total_footer.InnerHtml = dt_price.Compute("Sum(PRODUCT_SUB_TOTAL)", string.Empty).ToString();
             total_footer.InnerHtml = dt_price.Compute("Sum(PRODUCT_SUB_TOTAL)", string.Empty).ToString();
           
@@ -187,17 +191,14 @@ namespace Zoyal
             }
 
         }
+       
         protected void btn_procedchekout_Click(object sender, EventArgs e)
         {
             try
             {
 
-                string startdate = Request.Form["startdate"];
-                string enddate = Request.Form["enddate"];
-
-                SHIPPINGADDRESS obj_add = new SHIPPINGADDRESS();
-
-
+              //  btn_procedchekout.Enabled = false;
+              
                 DataTable dt_details = new DataTable("DETAILS");
                 dt_details.Columns.Add("FRIST_NAME", typeof(string));
                 dt_details.Columns.Add("EMAIL_ID", typeof(string));
@@ -213,9 +214,11 @@ namespace Zoyal
                 dt_details.Columns.Add("AUDIENCE", typeof(string));
                 dt_details.Columns.Add("STARTDATE", typeof(string));
                 dt_details.Columns.Add("ENDDATE", typeof(string));
+                dt_details.Columns.Add("NOOFDAYS", typeof(int));
                 dt_details.Columns.Add("TOTAL_AMOUNT", typeof(string));
                 dt_details.Columns.Add("COUPON_ID", typeof(string));
                 dt_details.Columns.Add("COUPON_DISCOUNT", typeof(string));
+                dt_details.Columns.Add("PAYMENT_TYPE", typeof(string));
 
                 DataRow column = dt_details.NewRow();
                 dt_details.Rows.Add(column);
@@ -236,105 +239,24 @@ namespace Zoyal
                 column["TOTAL_AMOUNT"] = hid_total_amount.Value;
                 column["COUPON_ID"] = hid_couponid.Value;
                 column["COUPON_DISCOUNT"] = hid_coupon_disc.Value;
+                column["PAYMENT_TYPE"]= btn_radio.SelectedValue;
+                TimeSpan t = Convert.ToDateTime(txt_startdate.Text) - Convert.ToDateTime(txt_enddate.Text);
+                double NrOfDays = t.TotalDays;
+                column["NOOFDAYS"] = NrOfDays;
+
                 Session["DETAILS"] = dt_details;
 
 
+                Response.Redirect("logincheck.aspx");
 
-
-                if (Session["ZOYALUSER"] != null)
-                {
-
-
-                    SHOPPINGTRANSACTION obj = new SHOPPINGTRANSACTION();
-                    obj.TRANS_NAME = "";
-                    obj.TRANS_TOTALAMOUNT = Convert.ToDecimal(dt_details.Rows[0]["TOTAL_AMOUNT"]);
-                    obj.TRANS_COMMENTS = "";
-                    // obj.TRANS_PAYMENTTYPE = "";
-                    obj.TRANS_NUMBER = "";
-                    obj.TRANS_CREATEDBY = 1;
-                    bool status = BLL.SHOPPING(obj);
-                    if (status == true)
-                    {
-                        BLL.ShowMessage(this, "your successfully inserted");
-                        MAINCART_INSERT();
-                        // clearcontrol();
-
-                    }
-                    else
-                    {
-                        BLL.ShowMessage(this, "contact to admin");
-                    }
-
-
-
-
-                    obj_add.ADD_FIRSTNAME = txt_name.Text;
-                    obj_add.ADD_EMAILID = txt_email.Text;
-                    obj_add.ADD_PRIMARYPHONE = txt_phonenumber.Text;
-                    obj_add.ADD_ALTERNATEPHONE = txt_altphonenumber.Text;
-                    obj_add.ADD_CITY = dt_details.Rows[0]["CITY"].ToString();
-                    obj_add.ADD_LOCATION = dt_details.Rows[0]["LOCATION_name"].ToString();
-                    obj_add.ADD_ADDRESS = txt_addline1.Text;
-                    obj_add.ADD_ADDRESS2 = txt_addline2.Text;
-                    obj_add.ADD_CREATEDBY = 1;
-                   
-                 
-
-                       //   bool status = BLL.INSERTADDRESS(obj_add);
-                    //    if (status == true)
-                    //    {
-                    //        BLL.ShowMessage(this, "your successfully inserted");
-                    //    // clearcontrol();
-
-                    //    }
-                    //    else
-                    //    {
-                    //        BLL.ShowMessage(this, "contact to admin");
-                    //    }
-                }
-                else
-                {
-                    Response.Redirect("logincheck.aspx");
-
-                }
-
+                
             }
             catch (Exception exe)
             {
 
             }
         }
-        public void MAINCART_INSERT()
-        {
-            MAINCART obj = new MAINCART();
-            USERS obj_user = new USERS();
-            DataTable dt_main = (DataTable)Session["DETAILS"];
-           // obj.MAINCART_USERID = obj_user.USER_ID;
-         obj.MAINCART_USERID = 1;
-            obj.MAINCART_COUPONID = Convert.ToInt32( dt_main.Rows[0]["COUPON_ID"].ToString());
-
-            obj.MAINCART_NOOFAUDIENCE = Convert.ToInt32( dt_main.Rows[0]["AUDIENCE"].ToString());
-            obj.MAINCART_STARTDATE = Convert.ToDateTime(dt_main.Rows[0]["STARTDATE"].ToString());
-            obj.MAINCART_ENDDATE =Convert.ToDateTime( dt_main.Rows[0]["ENDDATE"].ToString());
-            //  obj.MAINCART_NOOFDAYS
-            obj.MAINCART_SUBTOTAL =Convert.ToDecimal( dt_main.Rows[0]["TOTAL_AMOUNT"].ToString());
-           // obj.MAINCART_SHIPPINGCOST=
-            obj.MAINCART_DISCOUNTEDPRICE = Convert.ToDecimal( dt_main.Rows[0]["COUPON_DISCOUNT"].ToString());
-            obj.MAINCART_CREATEDBY = 1;
-            bool status = BLL.SHOPPINGMAIN(obj);
-            {
-                if (status == true)
-                {
-                    BLL.ShowMessage(this, "your successfully inserted");
-                  
-
-                }
-                else
-                {
-                    BLL.ShowMessage(this, "contact to admin");
-                }
-            }
-        }
+       
         protected void btn_conshaping_Click(object sender, EventArgs e)
         {
             try
@@ -496,6 +418,8 @@ namespace Zoyal
             string message = "";
             return price + "," + message;
         }
+
+     
     }
 }
 
