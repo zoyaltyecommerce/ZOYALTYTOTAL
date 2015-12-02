@@ -717,7 +717,7 @@
             var code = document.getElementById('ctl00_ContentPlaceHolder1_txt_promocode').value;
             var price = document.getElementById('ctl00_ContentPlaceHolder1_total_footer').innerText;
            
-
+            
 
 
 
@@ -725,12 +725,14 @@
             function OnSuccess(result) {
                 var res = result.split(',')
                 // var hidd = document.getElementById("hiddn1").value;
+              //  document.getElementById('ctl00_ContentPlaceHolder1_hid_total_amount.Value').innerHTML = res[0];
                 document.getElementById("ctl00_sub_amount_cart").innerHTML = res[0];
                 document.getElementById('ctl00_ContentPlaceHolder1_cart_total_footer').innerHTML = res[0];
                 document.getElementById('ctl00_ContentPlaceHolder1_total_footer').innerHTML = res[0];
                 document.getElementById('ctl00_ContentPlaceHolder1_lbl').innerHTML = res[1];
                 document.getElementById('ctl00_ContentPlaceHolder1_hid_couponid').value = res[2];
                 document.getElementById('ctl00_ContentPlaceHolder1_hid_coupon_disc').value = res[3];
+              
                 //document.getElementById("coupon_id").innerHTML = res[2];
 
                 debugger;
@@ -767,6 +769,7 @@
             }
         }
     </script>
+  
    
 
 </body>
