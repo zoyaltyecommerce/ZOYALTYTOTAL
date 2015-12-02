@@ -14,7 +14,100 @@ namespace Zoyal
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                if (Session["ZOYALUSER"] != null)
+                {
+                    MAINCART_INSERT();
 
+                }
+                else
+                {
+
+                }
+
+            }
+
+        }
+        public void MAINCART_INSERT()
+        {
+            try
+            {
+                if (Session["ZOYALUSER"] != null)
+                {
+                    DataTable dt_insert_details = (DataTable)Session["DETAILS"];
+                    SHIPPINGADDRESS obj_add = new SHIPPINGADDRESS();
+                    SHOPPINGTRANSACTION obj = new SHOPPINGTRANSACTION();
+                    obj.TRANS_NAME = "";
+                    obj.TRANS_TOTALAMOUNT = Convert.ToDecimal(dt_insert_details.Rows[0]["TOTAL_AMOUNT"]);
+                    obj.TRANS_COMMENTS = "";
+                    obj.TRANS_PAYMENTTYPE = Convert.ToInt32(dt_insert_details.Rows[0]["PAYMENT_TYPE"].ToString());
+                    obj.TRANS_NUMBER = "";
+                    obj.TRANS_CREATEDBY = 1;
+                    obj_add.ADD_FIRSTNAME = dt_insert_details.Rows[0]["FRIST_NAME"].ToString();
+                    obj_add.ADD_EMAILID = dt_insert_details.Rows[0]["EMAIL_ID"].ToString();
+                    obj_add.ADD_PRIMARYPHONE = dt_insert_details.Rows[0]["PRIMARYPHONE"].ToString();
+                    obj_add.ADD_ALTERNATEPHONE = dt_insert_details.Rows[0]["ALTPHONE"].ToString();
+                    obj_add.ADD_CITY = dt_insert_details.Rows[0]["CITY_id"].ToString();
+                    obj_add.ADD_LOCATION = dt_insert_details.Rows[0]["LOCATION_id"].ToString();
+                    obj_add.ADD_ADDRESS = dt_insert_details.Rows[0]["ADDRESS1"].ToString();
+                    obj_add.ADD_ADDRESS2 = dt_insert_details.Rows[0]["ADDRESS2"].ToString();
+                    obj_add.ADD_CREATEDBY = 1;
+                    MAINCART obj_maincart = new MAINCART();
+                    USERS obj_user = new USERS();
+                    DataTable dt_main = (DataTable)Session["DETAILS"];
+
+                    obj_maincart.MAINCART_USERID = Convert.ToInt32(hid_user_id.Value);
+                    obj_maincart.MAINCART_COUPONID = Convert.ToInt32(dt_main.Rows[0]["COUPON_ID"].ToString());
+                    obj_maincart.MAINCART_NOOFAUDIENCE = Convert.ToInt32(dt_main.Rows[0]["AUDIENCE"].ToString());
+                    obj_maincart.MAINCART_STARTDATE = Convert.ToDateTime(dt_main.Rows[0]["STARTDATE"].ToString());
+                    obj_maincart.MAINCART_ENDDATE = Convert.ToDateTime(dt_main.Rows[0]["ENDDATE"].ToString());
+                    obj_maincart.MAINCART_NOOFDAYS =Convert.ToInt32( dt_main.Rows[0]["NOOFDAYS"].ToString());
+                    obj_maincart.MAINCART_SUBTOTAL = Convert.ToDecimal(dt_main.Rows[0]["TOTAL_AMOUNT"].ToString());
+                    // obj.MAINCART_SHIPPINGCOST=
+                    obj_maincart.MAINCART_DISCOUNTEDPRICE = Convert.ToDecimal(dt_main.Rows[0]["COUPON_DISCOUNT"].ToString());
+                    obj_maincart.MAINCART_CREATEDBY = 1;
+                    SHOPPINGCART obj_sp_cart = new SHOPPINGCART();
+                    DataTable dd = (DataTable)Session["CART"];
+                  //  SHIPPING_CAT(dd);
+                   // obj_sp_cart.CART_MAINCARTID=
+                    DataTable dt_trans = BLL.ExecuteQuery("EXEC Usp_shoppingtransaction @OPERATION='SHOPPING',@TRANS_NAME='" + obj.TRANS_NAME + "',@TRANS_TOTALAMOUNT='" + obj.TRANS_TOTALAMOUNT + "',@TRANS_COMMENTS='" + obj.TRANS_COMMENTS + "',@TRANS_STATUS=1,@trans_paymenttype=" + obj.TRANS_PAYMENTTYPE + ",@trans_number='" + obj.TRANS_NUMBER + "',@MAINCART_USERID='" + obj_maincart.MAINCART_USERID + "',@ADD_FIRSTNAME='" + obj_add.ADD_FIRSTNAME + "',@ADD_EMAILID='" + obj_add.ADD_EMAILID + "',@ADD_ADDRESS='" + obj_add.ADD_ADDRESS + "',@ADD_PRIMARYPHONE='" + obj_add.ADD_PRIMARYPHONE + "',@ADD_ALTERNATEPHONE='" + obj_add.ADD_ALTERNATEPHONE + "',@ADD_ADDRESS2='" + obj_add.ADD_ADDRESS2 + "',@ADD_STATUS=1,@ADD_CITY='" + obj_add.ADD_CITY + "',@ADD_LOCATION='" + obj_add.ADD_LOCATION + "',@MAINCART_COUPONID=" + obj_maincart.MAINCART_COUPONID + ",@MAINCART_NOOFAUDIENCE='" + obj_maincart.MAINCART_NOOFAUDIENCE + "',@MAINCART_STARTDATE='" + obj_maincart.MAINCART_STARTDATE + "',@MAINCART_ENDDATE='" + obj_maincart.MAINCART_ENDDATE + "',@MAINCART_NOOFDAYS='"+ obj_maincart.MAINCART_NOOFDAYS+ "',@MAINCART_SUBTOTAL='" + obj_maincart.MAINCART_SUBTOTAL + "',@MAINCART_SHIPPINGCOST='0.00',@MAINCART_DISCOUNTEDPRICE='" + obj_maincart.MAINCART_DISCOUNTEDPRICE + "',@MAINCART_TOTALPRICE='" + obj_maincart.MAINCART_TOTALPRICE + "',@MAINCART_STATUS=1");
+                    {
+                        if (dt_trans.Rows.Count > 0)
+                        {
+                            BLL.ShowMessage(this, "your successfully inserted");
+
+                        }
+                        else
+                        {
+                            BLL.ShowMessage(this, "Error occured, contact administrator");
+                        }
+                    }
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+        }
+
+        public string  SHIPPING_CAT(DataTable dt_spcart)
+        {
+        
+                MAINCART obj = new MAINCART();
+               
+                DataTable dt_spcart1 = (DataTable)Session["CART"];
+
+                string cart_items = "";
+                for (int i = 0; i <= dt_spcart.Rows.Count; i++)
+                {
+                    cart_items = cart_items + "'" + dt_spcart.Rows[i]["PRODUCT_ID"] + "','" + dt_spcart.Rows[i]["PRODUCT_PRICE"] + "','" + dt_spcart.Rows[i]["PRODUCT_QTY"] + "','" + dt_spcart.Rows[i]["GRAND_TOTAL"] + "'";
+                }
+              return cart_items;
+           
         }
         protected void btn_submit_Click(object sender, EventArgs e)
         {
@@ -28,21 +121,18 @@ namespace Zoyal
                 obj.USER_PASSWORD = txt_password.Text.ToString().Trim();
 
 
+
                 DataTable dt_user = new DataTable();
 
                 dt_user = BLL.LOGIN(obj);
                 if (dt_user.Rows.Count > 0)
                 {
                     Session["ZOYALUSER"] = dt_user;
-                    BLL.ShowMessage(this, "YOUR ACCOUNT SUCCESSFULLY LOGIN");
-                    //Session["CART"] = dt_product;
-                  
-                    
-
-
-
-
-
+                    hid_user_id.Value = dt_user.Rows[0]["USER_ID"].ToString();
+                    //  BLL.ShowMessage(this, "YOUR ACCOUNT SUCCESSFULLY LOGIN");
+              
+                    MAINCART_INSERT();
+                    Response.Redirect("index2.aspx");
                 }
                 else
                 {
@@ -55,7 +145,6 @@ namespace Zoyal
 
             }
         }
-
         protected void btn_forget_Click(object sender, EventArgs e)
         {
 
@@ -84,7 +173,6 @@ namespace Zoyal
                 {
                     // Label1.Text = ae.Message;
                 }
-
             }
             catch (Exception ex)
             {
