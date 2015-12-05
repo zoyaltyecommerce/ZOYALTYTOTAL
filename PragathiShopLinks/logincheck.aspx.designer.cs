@@ -31,15 +31,6 @@ namespace Zoyal {
         protected global::System.Web.UI.WebControls.HiddenField hid_user_id;
         
         /// <summary>
-        /// hid_maiccartid control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hid_maiccartid;
-        
-        /// <summary>
         /// txt_username control.
         /// </summary>
         /// <remarks>

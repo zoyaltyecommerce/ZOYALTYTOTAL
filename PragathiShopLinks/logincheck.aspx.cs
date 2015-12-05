@@ -73,7 +73,7 @@ namespace Zoyal
                    // obj_sp_cart.CART_MAINCARTID=
                     DataTable dt_trans = BLL.ExecuteQuery("EXEC Usp_shoppingtransaction @OPERATION='SHOPPING',@TRANS_NAME='" + obj.TRANS_NAME + "',@TRANS_TOTALAMOUNT='" + obj.TRANS_TOTALAMOUNT + "',@TRANS_COMMENTS='" + obj.TRANS_COMMENTS + "',@TRANS_STATUS=1,@trans_paymenttype=" + obj.TRANS_PAYMENTTYPE + ",@trans_number='" + obj.TRANS_NUMBER + "',@MAINCART_USERID='" + obj_maincart.MAINCART_USERID + "',@ADD_FIRSTNAME='" + obj_add.ADD_FIRSTNAME + "',@ADD_EMAILID='" + obj_add.ADD_EMAILID + "',@ADD_ADDRESS='" + obj_add.ADD_ADDRESS + "',@ADD_PRIMARYPHONE='" + obj_add.ADD_PRIMARYPHONE + "',@ADD_ALTERNATEPHONE='" + obj_add.ADD_ALTERNATEPHONE + "',@ADD_ADDRESS2='" + obj_add.ADD_ADDRESS2 + "',@ADD_STATUS=1,@ADD_CITY='" + obj_add.ADD_CITY + "',@ADD_LOCATION='" + obj_add.ADD_LOCATION + "',@MAINCART_COUPONID=" + obj_maincart.MAINCART_COUPONID + ",@MAINCART_NOOFAUDIENCE='" + obj_maincart.MAINCART_NOOFAUDIENCE + "',@MAINCART_STARTDATE='" + obj_maincart.MAINCART_STARTDATE + "',@MAINCART_ENDDATE='" + obj_maincart.MAINCART_ENDDATE + "',@MAINCART_NOOFDAYS='"+ obj_maincart.MAINCART_NOOFDAYS+ "',@MAINCART_SUBTOTAL='" + obj_maincart.MAINCART_SUBTOTAL + "',@MAINCART_SHIPPINGCOST='0.00',@MAINCART_DISCOUNTEDPRICE='" + obj_maincart.MAINCART_DISCOUNTEDPRICE + "',@MAINCART_TOTALPRICE='" + obj_maincart.MAINCART_TOTALPRICE + "',@MAINCART_STATUS=1");
                     {
-                      //  hid_maiccartid.Value = 
+                     
                         if (dt_trans.Rows.Count > 0)
                         {
 

@@ -13,7 +13,6 @@
      
 <form id="form1" runat="server">   
      <asp:HiddenField runat="server" ID="hid_user_id" />
-     <asp:HiddenField runat="server" ID="hid_maiccartid" />
 
     <div class="middle-box text-center loginscreen animated fadeInDown">
         <div>
