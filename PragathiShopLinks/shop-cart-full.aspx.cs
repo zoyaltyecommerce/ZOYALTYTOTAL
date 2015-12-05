@@ -144,10 +144,7 @@ namespace Zoyal
                     //enddate= DateTime.Now.ToString("dd/MM/yyyy ");
                     txt_startdate.Text = dt_details.Rows[0]["STARTDATE"].ToString();
                     txt_enddate.Text = dt_details.Rows[0]["ENDDATE"].ToString();
-                    
-
                 }
-              
             }
          
         }
@@ -246,10 +243,8 @@ namespace Zoyal
 
                 Session["DETAILS"] = dt_details;
 
-
                 Response.Redirect("logincheck.aspx");
 
-                
             }
             catch (Exception exe)
             {
@@ -329,13 +324,8 @@ namespace Zoyal
                 }
             }
             object GRAND_TOTAL = dt_price.Compute("Sum(PRODUCT_SUB_TOTAL)", string.Empty);
-
-
-           
-
+            HttpContext.Current.Session["CART"] = dt_price;
             return GRAND_TOTAL.ToString();
-
-
         }
 
         [WebMethod]
@@ -351,11 +341,7 @@ namespace Zoyal
             {
                 HttpContext.Current.Session["price"] = price;
 
-
-
                 COUPONS obj1 = new COUPONS();
-
-              
 
                 obj1.COUPON_NAME = code;
                 decimal price1 = decimal.Parse(price);
@@ -408,6 +394,10 @@ namespace Zoyal
             {
                 message = "coupon can't be applied";
             }
+            DataTable dt_cart = (DataTable)HttpContext.Current.Session["CART"];
+            dt_cart.Rows[0]["GRAND_TOTAL"] = garnd_total;
+            HttpContext.Current.Session["CART"] = dt_cart;
+
             return garnd_total + ',' + message + ',' + coupon_id+','+coup_price;
         }
         [WebMethod]
