@@ -7,24 +7,16 @@
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-     
     <style type="text/css">
         .imaheight {
             height: 300px;
-        } 
-        
+        }
     </style>
     <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
-  
-   
-
-     
 </head>
 <body>
-   
     <form id="form1" runat="server">
         <asp:ScriptManager runat="server" EnablePageMethods="true"></asp:ScriptManager>
-
         <div>
             <div id="page">
                 <header>
@@ -38,25 +30,22 @@
                                 <li><a href="#" class="awhite">HYDERABAD</a></li>
                                 <li><a href="#" class="awhite">KARIMNAGAR</a></li>
                                 <li><a href="#" class="awhite">WARANGAL</a></li>
-
                             </ul>
                         </li>-->
                                 <li class="dropdown my-account">
-                                    <a href="#" runat="server"  class="dropdown-toggle" id="a_firstcity" data-toggle="dropdown" >Hyderabad<span class="caret"></span></a>
+                                    <a href="#" runat="server" class="dropdown-toggle" id="a_firstcity" data-toggle="dropdown">Hyderabad<span class="caret"></span></a>
                                     <ul runat="server" id="ul_locations" class="dropdown-menu" role="menu">
-                                         <li><a href="#">Hyderabad</a></li>
-                                <li><a href="#">Warangal</a></li>
-                                <li><a href="#">Karimnagar</a></li>
+                                        <li><a href="#">Hyderabad</a></li>
+                                        <li><a href="#">Warangal</a></li>
+                                        <li><a href="#">Karimnagar</a></li>
                                     </ul>
                                 </li>
-
                                 <li class="dropdown my-account" style="display: none">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <span class="caret"></span></a>
                                     <ul class="dropdown-menu" role="menu">
                                         <li><a href="#">My Orders</a></li>
                                         <li><a href="#">Account Information</a></li>
                                         <li><a href="#">Logout</a></li>
-
                                     </ul>
                                 </li>
                                 <li class="dropdown menu-shop">
@@ -74,7 +63,6 @@
                                         </ul>
                                         <div class="cart-buttons text-right">
                                             <asp:Button class="btn btn-white" ID="btn_viewcart" runat="server" Text="View Cart" OnClick="btn_viewcart_Click" />
-
                                             <button class="btn btn-primary" id="btn_checkout" runat="server">Checkout</button>
                                         </div>
                                     </div>
@@ -101,43 +89,26 @@
                                             <asp:LinkButton runat="server" ID="link_logout" OnClick="link_logout_Click" Text="Logout"></asp:LinkButton></li>
                                     </ul>
                                 </li>
-
                             </ul>
-
-
                             <div class="navbar-collapse collapse">
                                 <ul id="ul_list" class="nav navbar-nav pull-right">
-                                    <li  id="li_home">
-                                        <a href="index.aspx" >Home</a>
-
+                                    <li id="li_home">
+                                        <a href="index.aspx">Home</a>
                                     </li>
-
-                                    <li  id="li_aboutus" >
-
-                                        <a href="Aboutus.aspx" >About Us</a>
-
+                                    <li id="li_aboutus">
+                                        <a href="Aboutus.aspx">About Us</a>
                                     </li>
-
-                                    <li  id="li_partner">
-
+                                    <li id="li_partner">
                                         <a href="Partnerwithus.aspx">Patner with us</a>
-
                                     </li>
                                     <%--   <li>
-                                
                                 <a href="blog.aspx">Blog</a>
-
                             </li>--%>
-                                    <li  id="li_career" >
-
+                                    <li id="li_career">
                                         <a href="Careers.aspx">Careers</a>
-
                                     </li>
-
-                                    <li  id="li_contact">
-
-                                        <a href="ContactUs.aspx" >Contact Us</a>
-
+                                    <li id="li_contact">
+                                        <a href="ContactUs.aspx">Contact Us</a>
                                     </li>
                                 </ul>
                             </div>
@@ -146,10 +117,8 @@
                         <!--/.container-fluid -->
                     </nav>
                 </header>
-
                 <!-- Begin Login -->
                 <div class="login-wrapper">
-
                     <div id="form-login" role="form">
                         <div id="div_login">
                             <li class="active">
@@ -159,7 +128,6 @@
                                 <p id="lbl2" style="display: none">Enter the Email_ID </p>
                                 <div class="form-group">
                                     <label for="inputusername" id="lblemail">Email</label>
-
                                     <asp:TextBox ID="txt_username" runat="server" placeholder="Email" class="form-control input-lg" ForeColor="White"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ValidationGroup="login"
                                         ControlToValidate="txt_username" ErrorMessage="Enter valid Email" Display="Dynamic" SetFocusOnError="true" ForeColor="White">
@@ -169,32 +137,25 @@
                                         ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
                                         ControlToValidate="txt_username">
                                     </asp:RegularExpressionValidator>
-
                                 </div>
                                 <div class="form-group">
                                     <label for="inputusername" id="lblforgetmail" style="display: none">Enter your Email_ID</label>
-
                                     <asp:TextBox ID="txt_forgetemail" runat="server" placeholder="Email" class="form-control input-lg" ForeColor="White" Style="display: none"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ValidationGroup="foget"
                                         ControlToValidate="txt_forgetemail" ErrorMessage="Enter valid Email" Display="Dynamic" SetFocusOnError="true" ForeColor="White">
                                     </asp:RequiredFieldValidator>
-
                                     <asp:RegularExpressionValidator Display="Dynamic" ForeColor="White" ID="RegularExpressionValidator3" runat="server"
                                         ErrorMessage="Enter a valid email address"
                                         ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
                                         ControlToValidate="txt_forgetemail">
                                     </asp:RegularExpressionValidator>
-
                                 </div>
-
                                 <div class="form-group">
                                     <label id="lbpwd" for="inputpassword">Password</label>
-
                                     <asp:TextBox ID="txt_password" runat="server" placeholder="Password" class="form-control input-lg" TextMode="Password" ForeColor="White"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ValidationGroup="login"
                                         ControlToValidate="txt_password" ErrorMessage="Enter valid password" Display="Dynamic" SetFocusOnError="true" ForeColor="White">
                                     </asp:RequiredFieldValidator>
-
                                 </div>
                         </div>
                         <div id="div_reg" style="display: none">
@@ -202,12 +163,10 @@
                             <p>If you're a member, Register here.</p>
                             <div class="form-group">
                                 <label for="inputusername">Full Name</label>
-
                                 <asp:TextBox ID="txt_fullname" runat="server" placeholder="Fullname" class="form-control input-lg" ForeColor="White"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ValidationGroup="register"
                                     ControlToValidate="txt_fullname" ErrorMessage="Please enter your name" Display="Dynamic" SetFocusOnError="true" ForeColor="White">
                                 </asp:RequiredFieldValidator>
-
                             </div>
                             <div class="form-group">
                                 <label for="inputusername">Email</label>
@@ -510,7 +469,8 @@
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <p class="clearfix">
-                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button></p>
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                        </p>
                         <div class="form-inline form-search" role="form">
                             <div class="form-group">
                                 <label class="sr-only" for="textsearch">Enter text search</label>
@@ -620,7 +580,7 @@
             document.getElementById("ctl00_ContentPlaceHolder1_cart_total_footer").innerHTML = res[0];
             document.getElementById("ctl00_ContentPlaceHolder1_total_footer").innerHTML = res[0];
             document.getElementById("sub_amount_cart").innerHTML = res[0];
-            
+
             //document.getElementById('cart_head').innerHTML = "Your selection items(" + res[1] + ")";
 
             if (res[1] == 0) {
@@ -716,31 +676,28 @@
 
             var code = document.getElementById('ctl00_ContentPlaceHolder1_txt_promocode').value;
             var price = document.getElementById('ctl00_ContentPlaceHolder1_total_footer').innerText;
-           
-            
-
-
 
             PageMethods.coupon(code, price, OnSuccess, onerror)
             function OnSuccess(result) {
                 var res = result.split(',')
                 // var hidd = document.getElementById("hiddn1").value;
-              //  document.getElementById('ctl00_ContentPlaceHolder1_hid_total_amount.Value').innerHTML = res[0];
+                //  document.getElementById('ctl00_ContentPlaceHolder1_hid_total_amount.Value').innerHTML = res[0];
                 document.getElementById("ctl00_sub_amount_cart").innerHTML = res[0];
                 document.getElementById('ctl00_ContentPlaceHolder1_cart_total_footer').innerHTML = res[0];
                 document.getElementById('ctl00_ContentPlaceHolder1_total_footer').innerHTML = res[0];
                 document.getElementById('ctl00_ContentPlaceHolder1_lbl').innerHTML = res[1];
                 document.getElementById('ctl00_ContentPlaceHolder1_hid_couponid').value = res[2];
                 document.getElementById('ctl00_ContentPlaceHolder1_hid_coupon_disc').value = res[3];
-              
+
                 //document.getElementById("coupon_id").innerHTML = res[2];
 
                 debugger;
-                if (res[1] == "Coupon Applied") {
+                if (res[1] == "Coupon Applied")
+                {
                     document.getElementById("ctl00_ContentPlaceHolder1_apply1").style.display = "none";
                     document.getElementById("ctl00_ContentPlaceHolder1_Button1").style.display = "block";
                     document.getElementById('ctl00_ContentPlaceHolder1_hid_coupon').value = code;
-                       
+
                 }
 
             }
@@ -760,6 +717,7 @@
                 document.getElementById("ctl00_sub_amount_cart").innerHTML = res[0];
                 document.getElementById('ctl00_ContentPlaceHolder1_cart_total_footer').innerHTML = res[0];
                 document.getElementById('ctl00_ContentPlaceHolder1_total_footer').innerHTML = res[0];
+                document.getElementById("ctl00_ContentPlaceHolder1_hid_total_amount").value = res[0];
                 document.getElementById('ctl00_ContentPlaceHolder1_lbl').innerHTML = res[1];
                 document.getElementById("ctl00_ContentPlaceHolder1_apply1").style.display = "block";
                 document.getElementById("ctl00_ContentPlaceHolder1_Button1").style.display = "none";
@@ -769,8 +727,6 @@
             }
         }
     </script>
-  
-   
 
 </body>
 </html>
