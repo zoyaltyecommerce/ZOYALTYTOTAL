@@ -285,30 +285,30 @@ namespace ZOYALTY.Code
 
     }
 
-    public class LOCATIONS:SMVTS_MAIN
+    public class LOCATIONS : SMVTS_MAIN
     {
-        public  int LOCATION_ID { get; set; }
-        public  int LOCATION_CITYID { get; set; }
-        public  string LOCATION_NAME { get; set; }
-        public  DateTime LOCATION_CREATEDDATE { get; set; }
-        public  int LOCATION_CREATEDBY { get; set; }
-        public  DateTime LOCATION_MODIFIEDDATE { get; set; }
-        public  int LOCATION_MODIFIEDBY { get; set; }
+        public int LOCATION_ID { get; set; }
+        public int LOCATION_CITYID { get; set; }
+        public string LOCATION_NAME { get; set; }
+        public DateTime LOCATION_CREATEDDATE { get; set; }
+        public int LOCATION_CREATEDBY { get; set; }
+        public DateTime LOCATION_MODIFIEDDATE { get; set; }
+        public int LOCATION_MODIFIEDBY { get; set; }
     }
 
-    public class PRODUCT:SMVTS_MAIN
+    public class PRODUCT : SMVTS_MAIN
     {
-         public  int      PRODUCT_ID { get; set; }
+        public int PRODUCT_ID { get; set; }
         public string PRODUCT_NAME { get; set; }
-             public  string PRODUCT_DESC { get; set; }
-        public  string PRODUCT_IMAGEURL { get; set; }
-            public  string PRODUCT_IMAGETITLE { get; set; }
-            public int PRODUCT_CREATEDBY { get; set;}
-            public  DateTime PRODUCT_CREATEDDATE { get; set; }
-            public int PRODUCT_MODIFIEDBY { get; set; }
-             public  DateTime PRODUCT_MODIFIEDDATE { get; set; }
-            public bool PRODUCT_STATUS { get; set; }
-            public string PRODUCT_TITLE { get; set; }
+        public string PRODUCT_DESC { get; set; }
+        public string PRODUCT_IMAGEURL { get; set; }
+        public string PRODUCT_IMAGETITLE { get; set; }
+        public int PRODUCT_CREATEDBY { get; set; }
+        public DateTime PRODUCT_CREATEDDATE { get; set; }
+        public int PRODUCT_MODIFIEDBY { get; set; }
+        public DateTime PRODUCT_MODIFIEDDATE { get; set; }
+        public bool PRODUCT_STATUS { get; set; }
+        public string PRODUCT_TITLE { get; set; }
         public int PRODUCT_CITYID { set; get; }
     }
     public class SHIPPINGADDRESS : SMVTS_MAIN
@@ -340,18 +340,18 @@ namespace ZOYALTY.Code
         public string ADD_LOCATION { set; get; }
 
     }
-    public class cities: SMVTS_MAIN
+    public class cities : SMVTS_MAIN
     {
-       public int city_id { set; get; }
-public int city_stateid { set; get; }
-public string city_name { set; get; }
-public int city_createdby { set; get; }
-public DateTime city_createddate { set; get; }
-public int city_modifiedby { set; get; }
-public DateTime city_modifieddate { set; get; }
+        public int city_id { set; get; }
+        public int city_stateid { set; get; }
+        public string city_name { set; get; }
+        public int city_createdby { set; get; }
+        public DateTime city_createddate { set; get; }
+        public int city_modifiedby { set; get; }
+        public DateTime city_modifieddate { set; get; }
     }
-     
-    public class COUPONS: SMVTS_MAIN
+
+    public class COUPONS : SMVTS_MAIN
     {
         public int COUPON_ID { get; set; }
         public string COUPON_NAME { get; set; }
@@ -360,34 +360,34 @@ public DateTime city_modifieddate { set; get; }
         public int COUPON_STATUS { get; set; }
     }
 
-    public class SHOPPINGTRANSACTION:SMVTS_MAIN
+    public class SHOPPINGTRANSACTION : SMVTS_MAIN
     {
-    public int    TRANS_ID { get; set; }
- public string TRANS_NAME { set; get; }
+        public int TRANS_ID { get; set; }
+        public string TRANS_NAME { set; get; }
 
-public decimal TRANS_TOTALAMOUNT { set; get; }
+        public decimal TRANS_TOTALAMOUNT { set; get; }
 
-public string TRANS_COMMENTS { set; get; }
-public int TRANS_STATUS { set; get; }
-public int TRANS_PAYMENTTYPE { set; get; }
+        public string TRANS_COMMENTS { set; get; }
+        public int TRANS_STATUS { set; get; }
+        public int TRANS_PAYMENTTYPE { set; get; }
 
-public string TRANS_NUMBER { set; get; }
+        public string TRANS_NUMBER { set; get; }
 
-public int TRANS_CREATEDBY { set; get; }
-public DateTime TRANS_CREATEDDATE { set; get; }
-public int TRANS_MODIFIEDBY { set; get; }
-public DateTime TRANS_MODIFIEDDATE { set; get; }
+        public int TRANS_CREATEDBY { set; get; }
+        public DateTime TRANS_CREATEDDATE { set; get; }
+        public int TRANS_MODIFIEDBY { set; get; }
+        public DateTime TRANS_MODIFIEDDATE { set; get; }
     }
-    public class MAINCART:SMVTS_MAIN
+    public class MAINCART : SMVTS_MAIN
     {
-          public int MAINCART_ID { set; get; }
-         public int MAINCART_USERID { set; get; }
+        public int MAINCART_ID { set; get; }
+        public int MAINCART_USERID { set; get; }
         public int MAINCART_ADDRESS { set; get; }
         public int MAINCART_COUPONID { set; get; }
         public int MAINCART_NOOFAUDIENCE { set; get; }
         public DateTime MAINCART_STARTDATE { set; get; }
         public DateTime MAINCART_ENDDATE { set; get; }
-        public DateTime MAINCART_NOOFDAYS { set; get; }
+        public int MAINCART_NOOFDAYS { set; get; }
         public Decimal MAINCART_SUBTOTAL { set; get; }
         public Decimal MAINCART_SHIPPINGCOST { set; get; }
         public Decimal MAINCART_DISCOUNTEDPRICE { set; get; }
@@ -398,6 +398,21 @@ public DateTime TRANS_MODIFIEDDATE { set; get; }
         public DateTime MAINCART_MODIFIEDDATE { set; get; }
         public int MAINCART_STATUS { set; get; }
         public int MAINCART_TRANSID { set; get; }
+    }
+
+    public class SHOPPINGCART : SMVTS_MAIN
+    {
+        public int CART_ID { set; get; }
+        public int CART_MAINCARTID { set; get; }
+        public int CART_PRODUCTID { set; get; }
+        public decimal CART_UNITPRICE { set; get; }
+        public int CART_QUANTITY { set; get; }
+        public decimal CART_TOTALPRICE { set; get; }
+        public int CART_CREATEDBY { set; get; }
+        public DateTime CART_CREATEDDATE { set; get; }
+        public int CART_MODIFIEDBY { set; get; }
+        public DateTime CART_MODIFIEDDATE { set; get; }
+        public int CART_STATUS { set; get; }
     }
 
 }
