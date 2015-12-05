@@ -13,6 +13,8 @@
      
 <form id="form1" runat="server">   
      <asp:HiddenField runat="server" ID="hid_user_id" />
+     <asp:HiddenField runat="server" ID="hid_maiccartid" />
+
     <div class="middle-box text-center loginscreen animated fadeInDown">
         <div>
             <div>
@@ -63,7 +65,7 @@
     <!-- Mainly scripts -->
     </form>
      <script src="js/jquery-2.1.1.js"></script>
-    <script type="text/javascript">
+    <script type="text/javascript"> 
         function forgetpwd() {
             debugger;
             document.getElementById('lblmsg').style.display = 'inline-block'

@@ -18,8 +18,9 @@ namespace Zoyal
             {
                 if (Session["ZOYALUSER"] != null)
                 {
+                    
                     MAINCART_INSERT();
-
+                    
                 }
                 else
                 {
@@ -56,7 +57,7 @@ namespace Zoyal
                     MAINCART obj_maincart = new MAINCART();
                     USERS obj_user = new USERS();
                     DataTable dt_main = (DataTable)Session["DETAILS"];
-
+                   
                     obj_maincart.MAINCART_USERID = Convert.ToInt32(hid_user_id.Value);
                     obj_maincart.MAINCART_COUPONID = Convert.ToInt32(dt_main.Rows[0]["COUPON_ID"].ToString());
                     obj_maincart.MAINCART_NOOFAUDIENCE = Convert.ToInt32(dt_main.Rows[0]["AUDIENCE"].ToString());
@@ -68,15 +69,17 @@ namespace Zoyal
                     obj_maincart.MAINCART_DISCOUNTEDPRICE = Convert.ToDecimal(dt_main.Rows[0]["COUPON_DISCOUNT"].ToString());
                     obj_maincart.MAINCART_CREATEDBY = 1;
                     SHOPPINGCART obj_sp_cart = new SHOPPINGCART();
-                    DataTable dd = (DataTable)Session["CART"];
-                  //  SHIPPING_CAT(dd);
+                
                    // obj_sp_cart.CART_MAINCARTID=
                     DataTable dt_trans = BLL.ExecuteQuery("EXEC Usp_shoppingtransaction @OPERATION='SHOPPING',@TRANS_NAME='" + obj.TRANS_NAME + "',@TRANS_TOTALAMOUNT='" + obj.TRANS_TOTALAMOUNT + "',@TRANS_COMMENTS='" + obj.TRANS_COMMENTS + "',@TRANS_STATUS=1,@trans_paymenttype=" + obj.TRANS_PAYMENTTYPE + ",@trans_number='" + obj.TRANS_NUMBER + "',@MAINCART_USERID='" + obj_maincart.MAINCART_USERID + "',@ADD_FIRSTNAME='" + obj_add.ADD_FIRSTNAME + "',@ADD_EMAILID='" + obj_add.ADD_EMAILID + "',@ADD_ADDRESS='" + obj_add.ADD_ADDRESS + "',@ADD_PRIMARYPHONE='" + obj_add.ADD_PRIMARYPHONE + "',@ADD_ALTERNATEPHONE='" + obj_add.ADD_ALTERNATEPHONE + "',@ADD_ADDRESS2='" + obj_add.ADD_ADDRESS2 + "',@ADD_STATUS=1,@ADD_CITY='" + obj_add.ADD_CITY + "',@ADD_LOCATION='" + obj_add.ADD_LOCATION + "',@MAINCART_COUPONID=" + obj_maincart.MAINCART_COUPONID + ",@MAINCART_NOOFAUDIENCE='" + obj_maincart.MAINCART_NOOFAUDIENCE + "',@MAINCART_STARTDATE='" + obj_maincart.MAINCART_STARTDATE + "',@MAINCART_ENDDATE='" + obj_maincart.MAINCART_ENDDATE + "',@MAINCART_NOOFDAYS='"+ obj_maincart.MAINCART_NOOFDAYS+ "',@MAINCART_SUBTOTAL='" + obj_maincart.MAINCART_SUBTOTAL + "',@MAINCART_SHIPPINGCOST='0.00',@MAINCART_DISCOUNTEDPRICE='" + obj_maincart.MAINCART_DISCOUNTEDPRICE + "',@MAINCART_TOTALPRICE='" + obj_maincart.MAINCART_TOTALPRICE + "',@MAINCART_STATUS=1");
                     {
+                      //  hid_maiccartid.Value = 
                         if (dt_trans.Rows.Count > 0)
                         {
-                            BLL.ShowMessage(this, "your successfully inserted");
 
+                            //BLL.ShowMessage(this, "your successfully inserted");
+                           
+                            SHIPPING_CAT(dt_trans.Rows[0]["MAINCARTID"].ToString());
                         }
                         else
                         {
@@ -93,20 +96,22 @@ namespace Zoyal
             }
 
         }
-
-        public string  SHIPPING_CAT(DataTable dt_spcart)
+        public string SHIPPING_CAT(string CARTID)
         {
-        
-                MAINCART obj = new MAINCART();
-               
-                DataTable dt_spcart1 = (DataTable)Session["CART"];
-
+          
+               MAINCART obj = new MAINCART();
+            
+                 DataTable dt_spcart = (DataTable)Session["CART"];
+         
                 string cart_items = "";
-                for (int i = 0; i <= dt_spcart.Rows.Count; i++)
+                for (int i = 0; i < dt_spcart.Rows.Count; i++)
                 {
-                    cart_items = cart_items + "'" + dt_spcart.Rows[i]["PRODUCT_ID"] + "','" + dt_spcart.Rows[i]["PRODUCT_PRICE"] + "','" + dt_spcart.Rows[i]["PRODUCT_QTY"] + "','" + dt_spcart.Rows[i]["GRAND_TOTAL"] + "'";
+               
+                DataTable dt_spcart1 = BLL.ExecuteQuery("EXEC USP_SHOPPINGCART @OPERATION='SHOPPINGCART',@CART_MAINCARTID='"+ CARTID + "',@CART_PRODUCTID='" + dt_spcart.Rows[i]["PRODUCT_ID"] + "',@CART_UNITPRICE='" + dt_spcart.Rows[i]["PRODUCT_PRICE"] + "',@CART_QUANTITY='" + dt_spcart.Rows[i]["PRODUCT_QTY"] + "',@CART_TOTALPRICE='" + dt_spcart.Rows[i]["PRODUCT_SUB_TOTAL"] + "',@CART_CREATEDBY=1,@CART_STATUS=1");
+                 
                 }
-              return cart_items;
+            Response.Redirect("index2.aspx");
+            return cart_items;
            
         }
         protected void btn_submit_Click(object sender, EventArgs e)
@@ -130,9 +135,8 @@ namespace Zoyal
                     Session["ZOYALUSER"] = dt_user;
                     hid_user_id.Value = dt_user.Rows[0]["USER_ID"].ToString();
                     //  BLL.ShowMessage(this, "YOUR ACCOUNT SUCCESSFULLY LOGIN");
-              
                     MAINCART_INSERT();
-                    Response.Redirect("index2.aspx");
+                   
                 }
                 else
                 {
@@ -150,19 +154,19 @@ namespace Zoyal
 
             try
             {
-                ADMINLOGINS obj = new ADMINLOGINS();
-                obj.USER_EMAIL = txt_fogetpassword.Text;
+             USERS obj = new USERS();
+                obj.USER_EMAILID = txt_fogetpassword.Text;
                 MailMessage mailmessage = new MailMessage();
-                DataTable dt_user = BLL.ADMINFORGETPWD(obj);
+                DataTable dt_user = BLL.FORGETPWD(obj);
                 mailmessage.IsBodyHtml = true;
                 SmtpClient client = new SmtpClient("linkskart.com");
                 client.Credentials = new System.Net.NetworkCredential("info@linkskart.com", ".santhu143");
                 mailmessage.From = new System.Net.Mail.MailAddress("info@linkskart.com");
                 // mailmessage.From = new MailAddress("santhosh@pragatipadh.com");
-                mailmessage.To.Add(dt_user.Rows[0]["USER_EMAIL"].ToString());
+                mailmessage.To.Add(dt_user.Rows[0]["USER_EMAILID"].ToString());
                 // mailmessage.CC.Add(emailid);
                 mailmessage.Subject = "Password request";
-                mailmessage.Body = "<p> Dear " + dt_user.Rows[0]["USER_EMAIL"].ToString() + ",<br /> <br />You password is " + dt_user.Rows[0]["USER_PASSWORD"].ToString() + " please <a href=\"http://www.linkskart.com\">Click Here</a> to visit LINKSKART.</p></div>";
+                mailmessage.Body = "<p> Dear " + dt_user.Rows[0]["USER_FIRSTNAME"].ToString() + ",<br /> <br />You password is " + BLL.Decrypt(dt_user.Rows[0]["USER_PASSWORD"].ToString()) + " please <a href=\"http://www.linkskart.com\">Click Here</a> to visit LINKSKART.</p></div>";
                 client.EnableSsl = false;
                 try
                 {
