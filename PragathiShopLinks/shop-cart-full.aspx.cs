@@ -237,9 +237,9 @@ namespace Zoyal
                 column["COUPON_ID"] = hid_couponid.Value;
                 column["COUPON_DISCOUNT"] = hid_coupon_disc.Value;
                 column["PAYMENT_TYPE"]= btn_radio.SelectedValue;
-                TimeSpan t = Convert.ToDateTime(txt_startdate.Text) - Convert.ToDateTime(txt_enddate.Text);
+                TimeSpan t =( Convert.ToDateTime(txt_startdate.Text) - Convert.ToDateTime(txt_enddate.Text));
                 double NrOfDays = t.TotalDays;
-                column["NOOFDAYS"] = NrOfDays;
+                column["NOOFDAYS"] = -(NrOfDays);
 
                 Session["DETAILS"] = dt_details;
 
