@@ -86,8 +86,6 @@ namespace Zoyal
                             BLL.ShowMessage(this, "Error occured, contact administrator");
                         }
                     }
-
-
                 }
             }
             catch (Exception ex)
