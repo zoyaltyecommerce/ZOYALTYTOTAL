@@ -654,6 +654,8 @@
     <Content Include="Admin\js\plugins\video\responsible-video.js" />
     <Content Include="Admin\login.aspx" />
     <Content Include="Admin\login.html" />
+    <Content Include="Admin\Maincart.aspx" />
+    <Content Include="Admin\users_details.aspx" />
     <Content Include="Admin\Vendors.aspx" />
     <Content Include="App_Data\RadUploadTemp\1420190336138banner11.png" />
     <Content Include="App_Data\RadUploadTemp\1420190781105banner7new.png" />
@@ -1175,6 +1177,20 @@
     </Compile>
     <Compile Include="Admin\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Maincart.aspx.cs">
+      <DependentUpon>Maincart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Maincart.aspx.designer.cs">
+      <DependentUpon>Maincart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\users_details.aspx.cs">
+      <DependentUpon>users_details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\users_details.aspx.designer.cs">
+      <DependentUpon>users_details.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Vendors.aspx.cs">
       <DependentUpon>Vendors.aspx</DependentUpon>
