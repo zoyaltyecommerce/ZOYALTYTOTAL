@@ -276,8 +276,13 @@ namespace ZOYALTY.Code
 
         internal static DataTable GETUSERS()
         {
-            DataTable dt_users = BLL.ExecuteQuery("EXEC USP_USERS @OPERATION ='SELECTUSERS'");
+            DataTable dt_users = BLL.ExecuteQuery("EXEC USP_USERS @OPERATION ='GETUSERS'");
             return dt_users;
+        }
+        internal static DataTable GETMAINCART()
+        {
+            DataTable dt_maincart = BLL.ExecuteQuery("EXEC USP_MAINCART @OPERATION='GETMAINCART'");
+            return dt_maincart;
         }
 
     }
