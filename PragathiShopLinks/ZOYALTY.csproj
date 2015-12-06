@@ -1179,7 +1179,6 @@
     </Compile>
     <Compile Include="Admin\users.aspx.cs">
       <DependentUpon>users.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\users.aspx.designer.cs">
       <DependentUpon>users.aspx</DependentUpon>
