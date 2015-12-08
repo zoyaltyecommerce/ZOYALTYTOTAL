@@ -192,7 +192,7 @@ namespace Zoyal
             {
 
                 //  btn_procedchekout.Enabled = false;
-
+            
                 DataTable dt_details = new DataTable("DETAILS");
                 dt_details.Columns.Add("FRIST_NAME", typeof(string));
                 dt_details.Columns.Add("EMAIL_ID", typeof(string));
@@ -232,8 +232,18 @@ namespace Zoyal
                 column["STARTDATE"] = txt_startdate.Text;
                 column["ENDDATE"] = txt_enddate.Text;
                 column["TOTAL_AMOUNT"] = hid_total_amount.Value;
-                column["COUPON_ID"] = hid_couponid.Value;
-                column["COUPON_DISCOUNT"] = hid_coupon_disc.Value;
+                if(hid_couponid.Value!=null)
+                {
+                    column["COUPON_ID"] = 0;
+                    column["COUPON_DISCOUNT"] = 0;
+                }
+                else
+                {
+                    column["COUPON_ID"] = hid_couponid.Value;
+                    column["COUPON_DISCOUNT"] = hid_coupon_disc.Value;
+                }
+              
+               
                 column["PAYMENT_TYPE"]= btn_radio.SelectedValue;
                 TimeSpan t =( Convert.ToDateTime(txt_startdate.Text) - Convert.ToDateTime(txt_enddate.Text));
                 double NrOfDays = t.TotalDays;

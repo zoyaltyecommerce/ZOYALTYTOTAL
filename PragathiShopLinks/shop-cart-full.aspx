@@ -310,7 +310,7 @@
 											</tr>--%>
                                     </tbody>
 
-                                    <tbody>
+                                   <%-- <tbody>
                                         <tr id="resb">
                                             <td class="tdata"></td>
                                             <td class="tdata"></td>
@@ -319,7 +319,7 @@
                                             <td class="tdata"></td>
                                             <td class="tdata"></td>
                                         </tr>
-                                    </tbody>
+                                    </tbody>--%>
 
                                 </table>
 

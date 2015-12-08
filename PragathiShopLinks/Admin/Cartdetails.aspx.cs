@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using ZOYALTY.Code;
 using System.Data;
+using Telerik.Web.UI;
 
 namespace PragathiShopLinks.Admin
 {
@@ -16,7 +17,7 @@ namespace PragathiShopLinks.Admin
             if(!IsPostBack)
             {
                 load_cart_view();
-                tele_cat.DataBind();
+               tele_cat.DataBind();
                 cart_details.Visible = true;
             }
 

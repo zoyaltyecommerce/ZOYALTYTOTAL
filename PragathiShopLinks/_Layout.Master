@@ -676,7 +676,7 @@
 
             var code = document.getElementById('ctl00_ContentPlaceHolder1_txt_promocode').value;
             var price = document.getElementById('ctl00_ContentPlaceHolder1_total_footer').innerText;
-
+            document.getElementById('ctl00_ContentPlaceHolder1_hid_couponid').value = 0;
             PageMethods.coupon(code, price, OnSuccess, onerror)
             function OnSuccess(result) {
                 var res = result.split(',')

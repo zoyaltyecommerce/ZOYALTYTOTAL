@@ -69,7 +69,7 @@ namespace Zoyal
                     obj_maincart.MAINCART_LOCATION_NAME = dt_main.Rows[0]["LOCATION_name"].ToString();
                     obj_maincart.MAINCART_CITY_NAME = dt_main.Rows[0]["CITY"].ToString();
                     // obj.MAINCART_SHIPPINGCOST=
-                    obj_maincart.MAINCART_TOTALPRICE = Convert.ToDecimal(dt_total.Rows[0]["GRAND_TOTAL"]);
+                    obj_maincart.MAINCART_TOTALPRICE = Convert.ToDecimal(dt_total.Rows[0]["GRAND_TOTAL"].ToString());
                     obj_maincart.MAINCART_DISCOUNTEDPRICE = Convert.ToDecimal(dt_main.Rows[0]["COUPON_DISCOUNT"].ToString());
                     obj_maincart.MAINCART_CREATEDBY = 1;
                     SHOPPINGCART obj_sp_cart = new SHOPPINGCART();
