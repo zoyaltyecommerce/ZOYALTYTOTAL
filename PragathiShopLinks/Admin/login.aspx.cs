@@ -53,7 +53,7 @@ namespace Zoyal.Admin
                 {
                    Session["ADMINLOGIN"] = dt_admin;
                     //BLL.ShowMessage(this, "YOUR ACCOUNT SUCCESSFULLY LOGIN");
-                    Response.Redirect("index.aspx");
+                    Response.Redirect("Vendors.aspx");
                     clearcontrols();
 
 
