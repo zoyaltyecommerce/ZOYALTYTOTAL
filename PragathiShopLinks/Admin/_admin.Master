@@ -44,7 +44,10 @@
                     
                 </li>
                 <li>
-                    <a href="users.aspx"><i class="fa fa-diamond"></i> <span class="nav-label">Users</span></a>
+                    <a href="users_details.aspx"><i class="fa fa-diamond"></i> <span class="nav-label">Users</span></a>
+                </li>
+                <li>
+                    <a href="Cartdetails.aspx"><i class="fa fa-diamond"></i> <span class="nav-label">Shopping</span></a>
                 </li>
                
             </ul>

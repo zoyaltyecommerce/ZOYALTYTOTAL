@@ -7,7 +7,7 @@
             OnNeedDataSource="tele_cat_NeedDataSource" Skin="Sunset" HeaderStyle-HorizontalAlign="Left" GroupingSettings-CaseSensitive="false"  FilterMenu-EnableTextHTMLEncoding="false" Width="100%">
             <MasterTableView Width="100%">
                 <Columns >
-                   <%-- <telerik:GridBoundColumn DataField="CART_ID" HeaderText="S.NO" UniqueName="CART_ID"></telerik:GridBoundColumn>--%>
+              
                       <telerik:GridBoundColumn DataField="ADD_FIRSTNAME" HeaderText="Customer_Name" UniqueName="ADD_FIRSTNAME"></telerik:GridBoundColumn>
                       <telerik:GridBoundColumn DataField="PRODUCT_NAME" HeaderText="Products" UniqueName="PRODUCT_NAME"></telerik:GridBoundColumn>
                       <telerik:GridBoundColumn DataField="MAINCART_TOTALPRICE" HeaderText="Total_Amount" UniqueName="MAINCART_TOTALPRICE"></telerik:GridBoundColumn>
