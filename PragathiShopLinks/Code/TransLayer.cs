@@ -398,6 +398,8 @@ namespace ZOYALTY.Code
         public DateTime MAINCART_MODIFIEDDATE { set; get; }
         public int MAINCART_STATUS { set; get; }
         public int MAINCART_TRANSID { set; get; }
+        public string MAINCART_LOCATION_NAME { set; get; }
+        public string MAINCART_CITY_NAME { set; get; }
     }
 
     public class SHOPPINGCART : SMVTS_MAIN

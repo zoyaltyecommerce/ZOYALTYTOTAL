@@ -75,6 +75,7 @@
     <Content Include="Aboutus.aspx" />
     <Content Include="Aboutus.html" />
     <Content Include="admin.aspx" />
+    <Content Include="Admin\Cartdetails.aspx" />
     <Content Include="Admin\css\animate.css" />
     <Content Include="Admin\css\bootstrap.css" />
     <Content Include="Admin\css\bootstrap.min.css" />
@@ -1163,6 +1164,13 @@
     </Compile>
     <Compile Include="admin.aspx.designer.cs">
       <DependentUpon>admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Cartdetails.aspx.cs">
+      <DependentUpon>Cartdetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Cartdetails.aspx.designer.cs">
+      <DependentUpon>Cartdetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>

@@ -293,5 +293,11 @@ namespace ZOYALTY.Code
             return dt_maincart;
         }
 
+        internal static DataTable GETCART_DETAILS()
+        {
+            DataTable dt_cartdetails = BLL.ExecuteQuery("EXEC USP_SHOPPINGTRANSACTION @OPERATION='CART_VENDER'");
+
+            return dt_cartdetails;
+        }
     }
 }

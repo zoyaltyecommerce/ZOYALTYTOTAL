@@ -138,12 +138,9 @@ namespace Zoyal
 
                     txt_promocode.Text = dt_details.Rows[0]["PROMOCODE"].ToString();
                     txt_audience.Text = dt_details.Rows[0]["AUDIENCE"].ToString();
-                    //  startdate = dt_details.Rows[0]["STARTDATE"].ToString();
-                    // enddate = dt_details.Rows[0]["ENDDATE"].ToString();
-                    //  startdate = DateTime.Now.ToString("dd/MM/yyyy ");
-                    //enddate= DateTime.Now.ToString("dd/MM/yyyy ");
                     txt_startdate.Text = dt_details.Rows[0]["STARTDATE"].ToString();
                     txt_enddate.Text = dt_details.Rows[0]["ENDDATE"].ToString();
+                    btn_radio.SelectedValue = dt_details.Rows[0]["PAYMENT_TYPE"].ToString();
                 }
             }
          
@@ -194,8 +191,8 @@ namespace Zoyal
             try
             {
 
-              //  btn_procedchekout.Enabled = false;
-              
+                //  btn_procedchekout.Enabled = false;
+
                 DataTable dt_details = new DataTable("DETAILS");
                 dt_details.Columns.Add("FRIST_NAME", typeof(string));
                 dt_details.Columns.Add("EMAIL_ID", typeof(string));
@@ -215,6 +212,7 @@ namespace Zoyal
                 dt_details.Columns.Add("TOTAL_AMOUNT", typeof(string));
                 dt_details.Columns.Add("COUPON_ID", typeof(string));
                 dt_details.Columns.Add("COUPON_DISCOUNT", typeof(string));
+             // dt_details.Columns.Add("GRAND_TOTAL", typeof(decimal));
                 dt_details.Columns.Add("PAYMENT_TYPE", typeof(string));
 
                 DataRow column = dt_details.NewRow();
@@ -240,8 +238,8 @@ namespace Zoyal
                 TimeSpan t =( Convert.ToDateTime(txt_startdate.Text) - Convert.ToDateTime(txt_enddate.Text));
                 double NrOfDays = t.TotalDays;
                 column["NOOFDAYS"] = -(NrOfDays);
-
-                Session["DETAILS"] = dt_details;
+              
+               Session["DETAILS"] = dt_details;
 
                 Response.Redirect("logincheck.aspx");
 
@@ -324,7 +322,9 @@ namespace Zoyal
                 }
             }
             object GRAND_TOTAL = dt_price.Compute("Sum(PRODUCT_SUB_TOTAL)", string.Empty);
+            dt_price.Rows[0]["GRAND_TOTAL"] = GRAND_TOTAL;
             HttpContext.Current.Session["CART"] = dt_price;
+        
             return GRAND_TOTAL.ToString();
         }
 

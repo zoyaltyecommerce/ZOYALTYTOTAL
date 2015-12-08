@@ -10,8 +10,7 @@
 </head>
 
 <body class="gray-bg">
-     
-<form id="form1" runat="server">   
+     <form id="form1" runat="server">   
      <asp:HiddenField runat="server" ID="hid_user_id" />
 
     <div class="middle-box text-center loginscreen animated fadeInDown">
