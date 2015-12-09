@@ -33,6 +33,7 @@ namespace Zoyal
                             {
                                 row["PRODUCT_QTY"] = 1;
                                 row["PRODUCT_SUB_TOTAL"] = row["PRODUCT_PRICE"];
+                                row["GRAND_TOTAL"] = row["PRODUCT_SUB_TOTAL"];
 
                             }
                         }
@@ -232,7 +233,7 @@ namespace Zoyal
                 column["STARTDATE"] = txt_startdate.Text;
                 column["ENDDATE"] = txt_enddate.Text;
                 column["TOTAL_AMOUNT"] = hid_total_amount.Value;
-                if(hid_couponid.Value!=null)
+                if(hid_couponid.Value=="")
                 {
                     column["COUPON_ID"] = 0;
                     column["COUPON_DISCOUNT"] = 0;
