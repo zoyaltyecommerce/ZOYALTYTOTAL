@@ -5,7 +5,7 @@
     <div id="div_1" runat="server">
        <telerik:RadGrid ID="tele_grid" runat="server"  AllowFilteringByColumn="true"  FilterMenu-EnableTextHTMLEncoding="false"
             AllowPaging="true"  AutoGenerateColumns="false"  GridLines="None"  HeaderStyle-HorizontalAlign="Left" 
-            OnNeedDataSource="tele_grid_NeedDataSource"   PageSize="10"  Skin="Sunset"
+            OnNeedDataSource="tele_grid_NeedDataSource"   PageSize="5"  Skin="Sunset"
             AllowSorting="true"  GroupingSettings-CaseSensitive="false" Width="100%">
            
            <MasterTableView Width="100%">
