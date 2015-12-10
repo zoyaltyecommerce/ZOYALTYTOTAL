@@ -73,14 +73,64 @@
 {           
      float:right;  
      text-align:right;
-     width:172px;
+     margin-left:5px;
      
 }
 
    
       
     </style>
+     <script type="text/javascript">
+        function fun_AllowOnlyAmountAndDot(txt) {
+            if (event.keyCode > 47 && event.keyCode < 58 || event.keyCode == 46) {
+                var txtbx = document.getElementById(txt);
+                var amount = document.getElementById(txt).value;
+                var present = 0;
+                var count = 0;
 
+                if (amount.indexOf(".", present) || amount.indexOf(".", present + 1));
+                {
+                    // alert('0');
+                }
+                do {
+                    present = amount.indexOf(".", present);
+                    if (present != -1) {
+                        count++;
+                        present++;
+                    }
+                }
+                while (present != -1);
+                if (present == -1 && amount.length == 0 && event.keyCode == 46) {
+                    event.keyCode = 0;
+                    //alert("Wrong position of decimal point not  allowed !!");
+                    return false;
+                }
+
+                if (count >= 1 && event.keyCode == 46) {
+
+                    event.keyCode = 0;
+                    //alert("Only one decimal point is allowed !!");
+                    return false;
+                }
+                if (count == 1) {
+                    var lastdigits = amount.substring(amount.indexOf(".") + 1, amount.length);
+                    if (lastdigits.length >= 2) {
+                        //alert("Two decimal places only allowed");
+                        event.keyCode = 0;
+                        return false;
+                    }
+                }
+                return true;
+            }
+            else {
+                event.keyCode = 0;
+                //alert("Only Numbers with dot allowed !!");
+                return false;
+            }
+
+        }
+
+    </script>
 
     <script type="text/javascript">
 
@@ -467,12 +517,13 @@
                                       
                                     <label>
                                         No of Audience
-                                    </label>
+                                    </label> 
                                     
-                                        <asp:TextBox ID="txt_audience" style="float:right" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="txt_audience" style="float:right" runat="server" onkeypress="return fun_AllowOnlyAmountAndDot(this.id);"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ValidationGroup="procedtocheckout"
                                             ControlToValidate="txt_audience" ErrorMessage="Please Enter No of Audience " Display="Dynamic" SetFocusOnError="true" ForeColor="red" ValidationExpression="[0-9]{10}">
                                         </asp:RequiredFieldValidator>
+                             
                                     
 
                                 </div>
