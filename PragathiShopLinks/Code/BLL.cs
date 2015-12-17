@@ -299,5 +299,15 @@ namespace ZOYALTY.Code
 
             return dt_cartdetails;
         }
+       internal static bool INSERT_CITIES(cities obj)
+        {
+            bool status = BLL.ExecuteNonQuery("EXEC USP_INSERTCITIES @OPERATION='INSERT_CITIES' @CITY_NAME='" + obj.city_name + "',@CITY_CREATEDBY=1,@CITY_STATUS=1");
+            return status;
+        }
+        internal static bool INSERT_LOCATION(LOCATIONS OBJ)
+        {
+            bool STATUS = BLL.ExecuteNonQuery("EXEC USP_INSERTCITIES @OPERATION='INSERT_LOCATION' @LOCATION_NAME='" + OBJ.LOCATION_NAME + "',@LOCATION_CITYID='" + OBJ.LOCATION_CITYID + "',@LOCATION_CREATEDBY=1,@LOCATION_STATUS=1");
+            return STATUS;
+        }
     }
 }
