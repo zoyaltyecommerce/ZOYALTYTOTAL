@@ -310,6 +310,7 @@ namespace ZOYALTY.Code
         public bool PRODUCT_STATUS { get; set; }
         public string PRODUCT_TITLE { get; set; }
         public int PRODUCT_CITYID { set; get; }
+        public decimal PRODUCT_PRICE { set; get; }
     }
     public class SHIPPINGADDRESS : SMVTS_MAIN
     {

@@ -309,5 +309,13 @@ namespace ZOYALTY.Code
             bool STATUS = BLL.ExecuteNonQuery("EXEC USP_INSERTCITIES @OPERATION='INSERT_LOCATION' @LOCATION_NAME='" + OBJ.LOCATION_NAME + "',@LOCATION_CITYID='" + OBJ.LOCATION_CITYID + "',@LOCATION_CREATEDBY=1,@LOCATION_STATUS=1");
             return STATUS;
         }
+
+
+        internal static bool INSERT_PRODUCT(PRODUCT obj)
+        {
+
+            bool status = BLL.ExecuteNonQuery("EXEC USP_INSERT_PRODUCT @OPERATION='INSERT_PRODUCT',@PRODUCT_NAME='" + obj.PRODUCT_NAME + "',@PRODUCT_DESC='" + obj.PRODUCT_DESC + "',@PRODUCT_IMAGEURL='" + obj.PRODUCT_IMAGEURL + "',@PRODUCT_IMAGETITLE='" + obj.PRODUCT_IMAGETITLE + "',@PRODUCT_CREATEDBY=1,@PRODUCT_STATUS=1,@PRODUCT_TITLE='" + obj.PRODUCT_TITLE + "',@PRODUCT_PRICE='" + obj.PRODUCT_PRICE + "'");
+            return status;
+        }
     }
 }
