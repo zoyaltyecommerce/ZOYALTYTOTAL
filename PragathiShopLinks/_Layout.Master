@@ -1,4 +1,4 @@
-﻿s<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="_Layout.master.cs" Inherits="Zoyal._Layout" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="_Layout.master.cs" Inherits="Zoyal._Layout" %>
 
 <!DOCTYPE html>
 
@@ -576,19 +576,19 @@
         function OnSuccessDelete(result) {
             var res = result.split(',');
             document.getElementById('ctl00_ContentPlaceHolder1_lbl_count_item').innerHTML = "Your selection(" + res[1] + "   items)";
-            document.getElementById('ctl00_ContentPlaceHolder1_lbl_count_item').value = res[1];
+            document.getElementById('cart_count').innerHTML = res[1];
             document.getElementById("ctl00_ContentPlaceHolder1_cart_total_footer").innerHTML = res[0];
             document.getElementById("ctl00_ContentPlaceHolder1_total_footer").innerHTML = res[0];
-            document.getElementById("ctl00_sub_amount_cart").innerHTML = res[0];
+            document.getElementById("sub_amount_cart").innerHTML = res[0];
 
             //document.getElementById('cart_head').innerHTML = "Your selection items(" + res[1] + ")";
-            debugger;
+
             if (res[1] == 0) {
 
                 var res = document.getElementById('result');
                 document.getElementById("Myres").style.borderColor = "#ddd";
                 // document.getElementsByClassName("resdata").style.border = "1px solid #ddd";
-               var n = "Noitem selected";
+                var n = "Noitem selected";
                 res.innerHTML = n;
                 var zero = "00.00";
                 document.getElementById("ctl00_ContentPlaceHolder1_cart_total_footer").innerHTML = zero;
