@@ -76,7 +76,6 @@
     <Content Include="Aboutus.html" />
     <Content Include="admin.aspx" />
     <Content Include="Admin\Cartdetails.aspx" />
-    <Content Include="Admin\city.aspx" />
     <Content Include="Admin\css\animate.css" />
     <Content Include="Admin\css\bootstrap.css" />
     <Content Include="Admin\css\bootstrap.min.css" />
@@ -654,10 +653,10 @@
     <Content Include="Admin\js\plugins\toastr\toastr.min.js" />
     <Content Include="Admin\js\plugins\validate\jquery.validate.min.js" />
     <Content Include="Admin\js\plugins\video\responsible-video.js" />
-    <Content Include="Admin\LOCATION.aspx" />
     <Content Include="Admin\login.aspx" />
     <Content Include="Admin\login.html" />
     <Content Include="Admin\Maincart.aspx" />
+    <Content Include="Admin\priceinsert.aspx" />
     <Content Include="Admin\users_details.aspx" />
     <Content Include="Admin\Vendors.aspx" />
     <Content Include="Admin\vendor_registration.aspx" />
@@ -1177,26 +1176,12 @@
     <Compile Include="Admin\Cartdetails.aspx.designer.cs">
       <DependentUpon>Cartdetails.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\city.aspx.cs">
-      <DependentUpon>city.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\city.aspx.designer.cs">
-      <DependentUpon>city.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Admin\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\LOCATION.aspx.cs">
-      <DependentUpon>LOCATION.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\LOCATION.aspx.designer.cs">
-      <DependentUpon>LOCATION.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
@@ -1211,6 +1196,12 @@
     </Compile>
     <Compile Include="Admin\Maincart.aspx.designer.cs">
       <DependentUpon>Maincart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\priceinsert.aspx.cs">
+      <DependentUpon>priceinsert.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\priceinsert.aspx.designer.cs">
+      <DependentUpon>priceinsert.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\users_details.aspx.cs">
       <DependentUpon>users_details.aspx</DependentUpon>
