@@ -1,0 +1,9 @@
+D:\ZOYALTYNEW\branches\new\PragathiShopLinks\obj\Debug\ZOYALTY.csprojResolveAssemblyReference.cache
+D:\ZOYALTYNEW\branches\new\PragathiShopLinks\bin\Web.config
+D:\ZOYALTYNEW\branches\new\PragathiShopLinks\bin\Web.Debug.config
+D:\ZOYALTYNEW\branches\new\PragathiShopLinks\bin\Web.Release.config
+D:\ZOYALTYNEW\branches\new\PragathiShopLinks\bin\PragathiShopLinks.dll.config
+D:\ZOYALTYNEW\branches\new\PragathiShopLinks\bin\PragathiShopLinks.dll
+D:\ZOYALTYNEW\branches\new\PragathiShopLinks\bin\PragathiShopLinks.pdb
+D:\ZOYALTYNEW\branches\new\PragathiShopLinks\obj\Debug\PragathiShopLinks.dll
+D:\ZOYALTYNEW\branches\new\PragathiShopLinks\obj\Debug\PragathiShopLinks.pdb
