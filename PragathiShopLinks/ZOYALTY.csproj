@@ -1228,6 +1228,7 @@
     </Compile>
     <Compile Include="Admin\vendor_registration.aspx.cs">
       <DependentUpon>vendor_registration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\vendor_registration.aspx.designer.cs">
       <DependentUpon>vendor_registration.aspx</DependentUpon>
