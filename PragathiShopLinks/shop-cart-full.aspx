@@ -42,6 +42,12 @@
 
     <!-- Theme Responsive-->
     <link href="css/theme-responsive.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/common.min.css"/>
+    <link rel="stylesheet" href="css/rtl.min.css"/> 
+    <link rel="stylesheet" href="css/silver.min.css"/>  
+    <link rel="stylesheet" href="css/mobile.all.min.css"/> 
+    <script src="Scripts/jquery-1.9.1.min.js"></script> 
+    <script src="Scripts/all.min.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -56,8 +62,13 @@
             document.getElementById("cart_total_footer").innerHTML = GRAND_TOTAL;
             document.getElementById("total_footer").innerHTML = GRAND_TOTAL;
             //document.getElementById("cart_total_footer").innerHTML = result;
-            //document.getElementById("total_footer").innerHTML = result;
+            //document.getElementById("total_footer").innerHTML = result; 
         }
+    </script> 
+    <script> 
+        $("#timepicker").kendoTimePicker({
+          animation: false
+        });
     </script>
     <style type="text/css">
      
@@ -531,14 +542,15 @@
                                             
                                         <label>start date</label>   
                                               
-                                 <%--   <edititemtemplate> --%>
+                              <%--   <edititemtemplate> --%>
     <asp:TextBox ID="txt_startdate" style="line-height:25px;float:right;" runat="server" Text='<%# Bind("DateofBirth", "{0:yyyy-MM-dd}") %>' TextMode="Date"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ValidationGroup="procedtocheckout"
                                                         ControlToValidate="txt_startdate"  ErrorMessage="Please Select start date" Display="Dynamic" SetFocusOnError="true" ForeColor="red">
                                             </asp:RequiredFieldValidator>
-<%--</edititemtemplate> --%>
+<%--</edititemtemplate>--%>
                                        
                                 </div>
+                                <input id="timepicker" />
                                 
                             <div style="padding:10px 0px">
                                     <label>End date</label>
