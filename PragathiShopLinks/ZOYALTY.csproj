@@ -747,6 +747,8 @@
     <Content Include="Admin\LESS\top_navigation.less" />
     <Content Include="Admin\LESS\typography.less" />
     <Content Include="Admin\LESS\variables.less" />
+    <Content Include="css\jquery.timepicker.css" />
+    <Content Include="js\jquery.timepicker.js" />
     <Content Include="vendor\flexslider\fonts\flexslider-icon.eot" />
     <Content Include="vendor\flexslider\fonts\flexslider-icon.ttf" />
     <Content Include="vendor\flexslider\fonts\flexslider-icon.woff" />

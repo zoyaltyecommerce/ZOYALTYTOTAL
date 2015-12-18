@@ -45,7 +45,8 @@
     <link rel="stylesheet" href="css/common.min.css"/>
     <link rel="stylesheet" href="css/rtl.min.css"/> 
     <link rel="stylesheet" href="css/silver.min.css"/>  
-    <link rel="stylesheet" href="css/mobile.all.min.css"/> 
+    <link rel="stylesheet" href="css/mobile.all.min.css"/>  
+    <link href="css/jquery.timepicker.css" rel="stylesheet" /> 
     <script src="Scripts/jquery-1.9.1.min.js"></script> 
     <script src="Scripts/all.min.js"></script>
 
@@ -87,6 +88,7 @@
      margin-left:5px;
      
 }
+
 
    
       
@@ -550,7 +552,12 @@
 <%--</edititemtemplate>--%>
                                        
                                 </div>
-                                <input id="timepicker" />
+                                 <div style="padding:10px 0px">
+                                            
+                                        <label>Start Time</label>   
+                                        <input type="text" id="starttime"  style="line-height:25px;float:right;"/> 
+                                </div>
+                               
                                 
                             <div style="padding:10px 0px">
                                     <label>End date</label>
@@ -565,6 +572,11 @@
 <%--</edititemtemplate>--%>
                                    
                                 </div> 
+                                  <div style="padding:10px 0px">
+                                            
+                                        <label>End Time</label>   
+                                        <input type="text" id="endtime"  style="line-height:25px;float:right;"/> 
+                                </div>
                                 <div class="form-group">
                                     <label class="sr-only">Promotional code</label>
                                     <asp:TextBox ID="txt_promocode" runat="server" class="form-control" placeholder="Enter promotional code here"></asp:TextBox>
@@ -667,8 +679,17 @@
     <!-- Theme Initializer -->
     <script src="js/theme.plugins.js"></script>
     <script src="js/theme.js"></script>
-
+    <script src="js/jquery.timepicker.js"></script>
     <!-- Style Switcher -->
     <script type="text/javascript" src="style-switcher/js/switcher.js"></script>
-    </div>
+        <script type="text/javascript">        
+            $(function(){
+                $('#starttime').timepicker();
+                $('#endtime').timepicker();
+                 });
+         </script>  
+    <%--</div> --%> 
 </asp:Content>
+
+
+ 
