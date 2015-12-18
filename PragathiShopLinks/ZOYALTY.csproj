@@ -660,6 +660,7 @@
     <Content Include="Admin\Maincart.aspx" />
     <Content Include="Admin\users_details.aspx" />
     <Content Include="Admin\Vendors.aspx" />
+    <Content Include="Admin\vendor_registration.aspx" />
     <Content Include="App_Data\RadUploadTemp\1420190336138banner11.png" />
     <Content Include="App_Data\RadUploadTemp\1420190781105banner7new.png" />
     <Content Include="App_Data\RadUploadTemp\1420190783907Banner7-psl.png" />
@@ -1224,6 +1225,12 @@
     </Compile>
     <Compile Include="Admin\Vendors.aspx.designer.cs">
       <DependentUpon>Vendors.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\vendor_registration.aspx.cs">
+      <DependentUpon>vendor_registration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\vendor_registration.aspx.designer.cs">
+      <DependentUpon>vendor_registration.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\_admin.Master.cs">
       <DependentUpon>_admin.Master</DependentUpon>
