@@ -317,5 +317,11 @@ namespace ZOYALTY.Code
             bool status = BLL.ExecuteNonQuery("EXEC USP_INSERT_PRODUCT @OPERATION='INSERT_PRODUCT',@PRODUCT_NAME='" + obj.PRODUCT_NAME + "',@PRODUCT_DESC='" + obj.PRODUCT_DESC + "',@PRODUCT_IMAGEURL='" + obj.PRODUCT_IMAGEURL + "',@PRODUCT_IMAGETITLE='" + obj.PRODUCT_IMAGETITLE + "',@PRODUCT_CREATEDBY=1,@PRODUCT_STATUS=1,@PRODUCT_TITLE='" + obj.PRODUCT_TITLE + "',@PRODUCT_PRICE='" + obj.PRODUCT_PRICE + "'");
             return status;
         }
+        internal static bool GET_PRODUCTTYPE()
+        {
+            bool STATUS = BLL.ExecuteNonQuery("EXEC USE_PRODUCTTYPE");
+            return STATUS;
+
+        }
     }
 }
